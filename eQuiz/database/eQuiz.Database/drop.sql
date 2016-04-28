@@ -1,0 +1,1 @@
+﻿-- scripts to drop database structure

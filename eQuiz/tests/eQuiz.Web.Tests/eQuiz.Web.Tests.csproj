@@ -77,7 +77,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Areas\Admin\Controllers\DefaultControllerTest.cs" />
-    <Compile Include="Areas\Moderator\Controllers\Controllers\DefaultControllerTest.cs" />
+    <Compile Include="Areas\Moderator\Controllers\DefaultControllerTest.cs" />
     <Compile Include="Areas\Student\Controllers\DefaultControllerTest.cs" />
     <Compile Include="Controllers\AccountControllerTest.cs" />
     <Compile Include="Controllers\HomeControllerTest.cs" />

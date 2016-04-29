@@ -92,6 +92,9 @@
     <Content Include="Areas\Admin\Styles\equiz-temp.css" />
     <Content Include="Areas\Moderator\Styles\equiz-temp.css" />
     <Content Include="Areas\Student\Styles\equiz-temp.css" />
+    <Content Include="Areas\Student\Styles\login.css" />
+    <Content Include="Areas\Student\Styles\Dashboard.css" />
+    <Content Include="Areas\Student\Styles\studentDetails.css" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\app\shared\equiz.module.js" />
     <Content Include="Scripts\libs\angularjs\angular.js" />
@@ -125,6 +128,10 @@
     <Content Include="Areas\Admin\Views\Default\Index.cshtml" />
     <Content Include="Areas\Moderator\Views\Default\Index.cshtml" />
     <Content Include="Areas\Student\Views\Default\Index.cshtml" />
+    <Content Include="Views\Home\MainLogin.cshtml" />
+    <Content Include="Areas\Student\Views\Default\Dashboard.cshtml" />
+    <Content Include="Areas\Student\Views\Default\Details.cshtml" />
+    <Content Include="Areas\Student\Views\Default\Login.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -145,7 +152,6 @@
     <Folder Include="Areas\Student\Views\Shared\" />
     <Folder Include="Models\" />
     <Folder Include="Scripts\app\pages\" />
-    <Folder Include="Views\Home\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\eQuiz.Entities\eQuiz.Entities.csproj">

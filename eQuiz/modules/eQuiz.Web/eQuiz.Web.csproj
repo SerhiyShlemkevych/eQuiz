@@ -89,10 +89,14 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Areas\Admin\Styles\equiz-temp.css" />
+    <Content Include="Areas\Moderator\Styles\equiz-temp.css" />
+    <Content Include="Areas\Student\Styles\equiz-temp.css" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\app\shared\equiz.module.js" />
     <Content Include="Scripts\libs\angularjs\angular.js" />
     <Content Include="Scripts\libs\angularjs\angular.min.js" />
+    <Content Include="Styles\equiz-temp.css" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -131,14 +135,16 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Models\" />
+    <Folder Include="Areas\Admin\Scripts\" />
     <Folder Include="Areas\Admin\Views\Shared\" />
     <Folder Include="Areas\Moderator\Models\" />
+    <Folder Include="Areas\Moderator\Scripts\" />
     <Folder Include="Areas\Moderator\Views\Shared\" />
     <Folder Include="Areas\Student\Models\" />
+    <Folder Include="Areas\Student\Scripts\" />
     <Folder Include="Areas\Student\Views\Shared\" />
     <Folder Include="Models\" />
     <Folder Include="Scripts\app\pages\" />
-    <Folder Include="Styles\" />
     <Folder Include="Views\Home\" />
   </ItemGroup>
   <ItemGroup>

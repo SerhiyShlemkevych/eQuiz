@@ -89,19 +89,27 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Areas\Admin\Scripts\equiz.layoutController.js" />
+    <Content Include="Areas\Admin\Scripts\review\equiz.reviewController.js" />
+    <Content Include="Areas\Admin\Scripts\review\equiz.reviewDataService.js" />
+    <Content Include="Areas\Admin\Scripts\shared\equiz.module.js" />
+    <Content Include="Areas\Admin\Styles\bootstrap-combined.css" />
     <Content Include="Areas\Admin\Styles\equiz-temp.css" />
+    <Content Include="Areas\Admin\Views\Pages\Review.html" />
     <Content Include="Areas\Moderator\Styles\equiz-temp.css" />
     <Content Include="Areas\Student\Styles\equiz-temp.css" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\app\shared\equiz.module.js" />
     <Content Include="Scripts\libs\angularjs\angular.js" />
     <Content Include="Scripts\libs\angularjs\angular.min.js" />
+    <Content Include="Scripts\libs\Underscore\underscore-min.js" />
     <Content Include="Styles\equiz-temp.css" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Controllers\old_DefaultController.cs" />
     <Compile Include="Areas\Admin\Controllers\DefaultController.cs" />
     <Compile Include="Areas\Moderator\Controllers\DefaultController.cs" />
     <Compile Include="Areas\Moderator\ModeratorAreaRegistration.cs" />
@@ -124,13 +132,15 @@
     <Content Include="Areas\Moderator\Views\web.config" />
     <Content Include="Areas\Admin\Views\web.config" />
     <Content Include="Areas\Student\Views\web.config" />
-    <Content Include="Areas\Admin\Views\Default\Index.cshtml" />
     <Content Include="Areas\Moderator\Views\Default\Index.cshtml" />
     <Content Include="Areas\Student\Views\Default\Index.cshtml" />
     <Content Include="Views\Home\MainLogin.cshtml" />
     <Content Include="Areas\Student\Views\Default\Dashboard.cshtml" />
     <Content Include="Areas\Student\Views\Default\Details.cshtml" />
     <Content Include="Areas\Student\Views\Account\Login.cshtml" />
+    <Content Include="Areas\Admin\Views\Default\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\Admin\Views\_ViewStart.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -141,8 +151,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Models\" />
-    <Folder Include="Areas\Admin\Scripts\" />
-    <Folder Include="Areas\Admin\Views\Shared\" />
     <Folder Include="Areas\Moderator\Models\" />
     <Folder Include="Areas\Moderator\Scripts\" />
     <Folder Include="Areas\Moderator\Views\Shared\" />

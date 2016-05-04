@@ -1,16 +1,33 @@
-﻿
-@{
-    ViewBag.Title = "Index";
-    Layout = "~/Views/Shared/Layout.cshtml";
+﻿@{
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
 }
 
-@section HeadStyles 
-{    
+<div ng-app="equizModule">
+    <div ng-controller="LayoutController as lc">
+        <div layout="row" style="padding:10px">
+            <div>
+                <button style="text-decoration:solid; font-size:20px" ng-click="lc.GoToReview()">
+                    Students
+                </button>
+                <button style="text-decoration:solid; font-size:20px">
+                    Quizzes
+                </button>
+                <label style="text-decoration:solid; font-size:20px; float:right">
+                    Full Name
+                </label>
+            </div>
+        </div>
+        <div compile="lc.review"></div>
+    </div>
+</div>   
+
+@section FootScripts
+{
+    <script src="~/Areas/Admin/Scripts/shared/equiz.module.js"></script>
+    <script src="~/Areas/Admin/Scripts/review/equiz.reviewDataService.js"></script>
+    <script src="~/Areas/Admin/Scripts/review/equiz.reviewController.js"></script>
+    <script src="~/Areas/Admin/Scripts/equiz.layoutController.js"></script>
+    <script src="~/Scripts/libs/Underscore/underscore-min.js"></script>
+    <link href="~/Areas/Admin/Styles/bootstrap-combined.css" rel="stylesheet"/>
     <link href="~/Areas/Admin/Styles/equiz-temp.css" rel="stylesheet" />
 }
-
-<h2>Hello Admin!!!</h2>
-
-<div>
-    <a href="@Url.Action("Index", "Home", new { area = "" })">Back Home</a>
-</div>

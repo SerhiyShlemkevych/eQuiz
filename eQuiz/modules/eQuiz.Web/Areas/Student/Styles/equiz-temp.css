@@ -1,1 +1,53 @@
 ﻿
+h1 {
+    font-family: sans-serif;
+}
+
+#details table {
+    position: fixed;
+    top: 30%;
+    left: 40%;
+    border-collapse: separate;
+    border-spacing: 0 1em;
+}
+
+#details table td {
+    text-align: left;
+}
+
+select {
+    border-radius: 4px;
+    width: 172px;
+}
+
+input[type='text'], select {
+    border: 2px solid black;
+}
+
+#saveDetailsBtn {
+    border: 2px solid black;
+    width: 110px;
+    border-radius: 4px;
+}
+
+
+
+
+#headerTable {
+    table-layout: fixed;
+    width: 100%;
+}
+
+    #headerTable #User_group_td {
+        text-align: right;
+    }
+
+#quizzesTable {
+    border-collapse: separate;
+    border-spacing: 0 1em;
+    border-spacing: 10px;
+}
+
+#content {
+    margin-top: 80px;
+}

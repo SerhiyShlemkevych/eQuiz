@@ -1,25 +1,16 @@
 ﻿
 @{
-    Layout = null;
+    Layout = "~/Views/Shared/Layout.cshtml";
 }
 
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Login</title>
-    <meta name="viewport" content="width=device-width" />
-    <link rel="stylesheet" href="~/Areas/Student/Styles/login.css">
-</head>
-<body>
-    <div id='loginContent'>
-        <table>
-            <tr>
-                <td><h1>Login</h1></td>
-                <td id='empty'></td>
-                <td><a href='@Url.Action("Dashboard", "Default", new { area = "Student"})'><input type="button" value="Student"></a></td>
-                <td><input type="button" value="Moderator/Admin"></td>
-            </tr>
-        </table>
-    </div>
-</body>
-</html>
+
+<div id='loginContent'>
+    <table id="loginTbl">
+        <tr>
+            <td><h1>Login</h1></td>
+            <td id='empty'></td>
+            <td><a href='@Url.Action("Dashboard", "Default", new { area = "Student"})'><input type="button" value="Student" class="LoginBtn"></a></td>
+            <td><input type="button" value="Moderator/Admin" class="LoginBtn"></td>
+        </tr>
+    </table>
+</div>

@@ -6,14 +6,14 @@ h1 {
     font-family: sans-serif;
 }
 
-table {
+#loginTbl {
     border-spacing: 5px;
     position: fixed;
     top: 40%;
     left: 40%;
 }
 
-td {
+#loginTbl td {
     text-align: left;
 }
 
@@ -21,7 +21,7 @@ td {
     width: 15px;
 }
 
-input {
+.LoginBtn {
     border: 2px solid black;
     border-radius: 4px;
 }

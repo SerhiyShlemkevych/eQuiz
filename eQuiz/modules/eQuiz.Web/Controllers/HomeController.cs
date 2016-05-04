@@ -13,5 +13,10 @@ namespace eQuiz.Web.Controllers
         {
             return RedirectToAction("Index", "Account");
         }
+
+        public ActionResult MainLogin()
+        {
+            return View();
+        }
     }
 }

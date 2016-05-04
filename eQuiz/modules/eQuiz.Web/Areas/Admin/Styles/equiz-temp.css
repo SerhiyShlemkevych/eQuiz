@@ -1,0 +1,28 @@
+﻿.highlightedText  {
+    background: lightblue;
+}
+
+.sortorder:after {
+    content: '\25b2';
+}
+
+.sortorder.direction:after {
+    content: '\25bc';
+}
+
+.reviewTable {
+        width: 100%;
+        height: 400px;
+        text-align: left;
+}
+th, td {
+    border-bottom: 1px solid #ddd;
+}
+
+.table-active-page {
+    font-weight: bold;
+}
+
+.groupBtn {
+    float:right;
+}

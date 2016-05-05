@@ -4,15 +4,15 @@ angular.module('equizModule').controller('ReviewController', ReviewController);
     ReviewController.$inject = ['$scope', '$filter', 'reviewDataService'];
 
     function ReviewController($scope, $filter, reviewDataService) {
-
-    $scope.search = '';
-    $scope.myPredicate = null;
-    $scope.tablePage = 0;
-    $scope.resultsPerPage = 10;
+    var vm = this;
+    vm.search = '';
+    vm.myPredicate = null;
+    vm.tablePage = 0;
+    vm.resultsPerPage = 10;
 
     var orderBy = $filter('orderBy');
 
-    $scope.headers = [
+    vm.headers = [
     {
         name:'Student',
         field: 'student',
@@ -28,11 +28,11 @@ angular.module('equizModule').controller('ReviewController', ReviewController);
     }
   ];
   
-    $scope.content = [];
+    vm.content = [];
   
-    $scope.custom = { student: 'bold', userGroup: 'grey', quizzes: 'grey' };
+    vm.custom = { student: 'bold', userGroup: 'grey', quizzes: 'grey' };
 
-    $scope.resultsCount = [10, 25, 50, 100];
+    vm.resultsCount = [10, 25, 50, 100];
 
     function activate() {
         //var contentPromise = reviewDataService.getStudents();
@@ -41,20 +41,20 @@ angular.module('equizModule').controller('ReviewController', ReviewController);
         //        $scope.content.push.apply($scope.content, response.data);
         //    });
         //});
-        $scope.content = reviewDataService.getStudents()
+        vm.content = reviewDataService.getStudents()
     };
 
     activate();
 
     function generatePredicate() {
-        $scope.myPredicate = [null, null, null];
+        vm.myPredicate = [null, null, null];
     };
 
-    $scope.refreshPredicate = function (index) {
-      if ($scope.myPredicate === null) {
+    vm.refreshPredicate = function (index) {
+        if (vm.myPredicate === null) {
           generatePredicate();
       }
-      if ($scope.myPredicate[index] === null) {
+      if (vm.myPredicate[index] === null) {
           var item = null;
           switch (index) {
               case 0:
@@ -67,22 +67,22 @@ angular.module('equizModule').controller('ReviewController', ReviewController);
                   item = '+quizzes';
                   break;
           }
-          $scope.myPredicate[index] = item;
+          vm.myPredicate[index] = item;
       }
-      else if ($scope.myPredicate[index][0] === '+') {
-          $scope.myPredicate[index] = '-' + $scope.myPredicate[index].slice(1);
+      else if (vm.myPredicate[index][0] === '+') {
+          vm.myPredicate[index] = '-' + vm.myPredicate[index].slice(1);
       }
-      else if ($scope.myPredicate[index][0] === '-') {
-          $scope.myPredicate[index] = null;
+      else if (vm.myPredicate[index][0] === '-') {
+          vm.myPredicate[index] = null;
       }
   };
 
-    $scope.direction = function (index) {
-      if ($scope.myPredicate) {
-          if ($scope.myPredicate[index] === null) {
+    vm.direction = function (index) {
+        if (vm.myPredicate) {
+          if (vm.myPredicate[index] === null) {
               return null;
           };
-          if ($scope.myPredicate[index][0] === '+') {
+          if (vm.myPredicate[index][0] === '+') {
               return true;
           };
           return false;
@@ -90,49 +90,49 @@ angular.module('equizModule').controller('ReviewController', ReviewController);
       return null;
   };
 
-    $scope.numberOfPages = function () {
-        return Math.ceil($scope.content.length / $scope.resultsPerPage);
+    vm.numberOfPages = function () {
+        return Math.ceil(vm.content.length / vm.resultsPerPage);
     };
 
-    $scope.getNumber = function (num) {
+    vm.getNumber = function (num) {
       return new Array(num);
   };
 
-    $scope.order = function(predicate, reverse) {
-       $scope.content = orderBy($scope.content, predicate, reverse);
-       $scope.predicate = predicate;
+    vm.order = function(predicate, reverse) {
+        vm.content = orderBy(vm.content, predicate, reverse);
+        vm.predicate = predicate;
   };
 
-    $scope.goToPage = function (page) {
-        $scope.tablePage = page;
+    vm.goToPage = function (page) {
+        vm.tablePage = page;
     };
     
-    $scope.selectedGroup = [];
-    $scope.groupList = GetUniquePropertyValues($scope.content, 'userGroup'); //property user group needs to be changed manualy    
+    vm.selectedGroup = [];
+    vm.groupList = GetUniquePropertyValues(vm.content, 'userGroup'); //property user group needs to be changed manualy    
 
     $scope.setSelectedGroup = function () { // DONT PUT THIS FUNCTION INTO VM! let it be in scope (because of 'this' in function)
         var id = this.group;
-        if (_.contains($scope.selectedGroup, id)) {
-            $scope.selectedGroup = _.without($scope.selectedGroup, id);
+        if (_.contains(vm.selectedGroup, id)) {
+            vm.selectedGroup = _.without(vm.selectedGroup, id);
         } else {
-            $scope.selectedGroup.push(id);
+            vm.selectedGroup.push(id);
         }
         return false;
     };
 
-    $scope.isChecked = function (group) {
-        if (_.contains($scope.selectedGroup, group)) {
+    vm.isChecked = function (group) {
+        if (_.contains(vm.selectedGroup, group)) {
             return 'icon-ok pull-right';
         }
         return false;
     };
 
-    $scope.checkAll = function () {
-        $scope.selectedGroup = $scope.groupList;
+    vm.checkAll = function () {
+        vm.selectedGroup = vm.groupList;
     };
 
-    $scope.unCheckAll = function () {
-        $scope.selectedGroup = [];
+    vm.unCheckAll = function () {
+        vm.selectedGroup = [];
     };
 
     function GetUniquePropertyValues(arrayToCheck, propertyName) {
@@ -149,44 +149,6 @@ angular.module('equizModule').controller('ReviewController', ReviewController);
 
         return output;
     }
-
-
 };
-
-angular.module('equizModule').filter('startFrom', function () {
-  return function (input, start) {
-      if (!input || !input.length) { return; }
-      start = +start;
-      return input.slice(start);
-  }
-});
-
-angular.module("equizModule").filter('highlight', function ($sce) {
-    return function (text, phrase) {
-        if (phrase) {
-            text = text.replace(new RegExp('(' + phrase + ')', 'gi'), '<span class="highlightedText">$1</span>');
-        }
-
-        return $sce.trustAsHtml(text);
-    }
-});
-
-angular.module('equizModule').filter('groupFilter', function () {
-    return function (data, selectedData) {
-        if (!angular.isUndefined(data) && !angular.isUndefined(selectedData) && selectedData.length > 0) {
-            var tempData = [];
-            angular.forEach(selectedData, function (id) {
-                angular.forEach(data, function (item) {
-                    if (angular.equals(item.userGroup, id)) { //property user group needs to be changed manualy
-                        tempData.push(item);
-                    }
-                });
-            });
-            return tempData;
-        } else {
-            return data;
-        }
-    };
-});
 
 })(angular);

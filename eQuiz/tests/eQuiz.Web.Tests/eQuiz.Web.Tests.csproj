@@ -93,6 +93,16 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="karma.conf.js" />
+    <Content Include="Scripts\app\one-plus-one.spec.js" />
+    <Content Include="Scripts\libs\jasmine\boot.js" />
+    <Content Include="Scripts\libs\jasmine\console.js" />
+    <Content Include="Scripts\libs\jasmine\jasmine-html.js" />
+    <Content Include="Scripts\libs\jasmine\jasmine.css" />
+    <Content Include="Scripts\libs\jasmine\jasmine.js" />
+    <Content Include="Scripts\libs\jasmine\jasmine_favicon.png" />
+  </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

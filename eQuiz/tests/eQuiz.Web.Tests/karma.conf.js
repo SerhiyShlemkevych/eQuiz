@@ -5,7 +5,7 @@ module.exports = function(config) {
   config.set({
 
     // base path that will be used to resolve all patterns (eg. files, exclude)
-      basePath: 'D:/Docs/.NET IT Lab/.NET IT Lab 2015 - 2 - Nov/TeamProject/eQuiz/src/eQuiz/eQuiz/tests/eQuiz.Web.Tests/Scripts/',
+      basePath: 'Scripts/',
 
 
     // frameworks to use

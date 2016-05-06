@@ -91,12 +91,16 @@
   <ItemGroup>
     <Content Include="Areas\Admin\Scripts\equiz.compileDirective.js" />
     <Content Include="Areas\Admin\Scripts\equiz.layoutController.js" />
+    <Content Include="Areas\Admin\Scripts\equiz.sharedValuesService.js" />
     <Content Include="Areas\Admin\Scripts\review\equiz.groupFilter.js" />
     <Content Include="Areas\Admin\Scripts\review\equiz.highlightFilter.js" />
     <Content Include="Areas\Admin\Scripts\review\equiz.reviewController.js" />
     <Content Include="Areas\Admin\Scripts\review\equiz.reviewDataService.js" />
     <Content Include="Areas\Admin\Scripts\review\equiz.startFromFilter.js" />
     <Content Include="Areas\Admin\Scripts\shared\equiz.module.js" />
+    <Content Include="Areas\Admin\Scripts\student\equiz.studentController.js" />
+    <Content Include="Areas\Admin\Scripts\student\equiz.studentDataService.js" />
+    <Content Include="Areas\Admin\Scripts\Templates\Student.html" />
     <Content Include="Areas\Admin\Styles\bootstrap-combined.css" />
     <Content Include="Areas\Admin\Styles\equiz-temp.css" />
     <Content Include="Areas\Admin\Scripts\Templates\Review.html" />

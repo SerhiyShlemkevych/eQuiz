@@ -1,9 +1,9 @@
 ﻿(function(angular) {
 angular.module('equizModule').controller('ReviewController', ReviewController);
 
-    ReviewController.$inject = ['$scope', '$filter', 'reviewDataService'];
+ReviewController.$inject = ['$scope', '$filter', 'reviewDataService', 'sharedProperties'];
 
-    function ReviewController($scope, $filter, reviewDataService) {
+    function ReviewController($scope, $filter, reviewDataService, sharedProperties) {
     var vm = this;
     vm.search = '';
     vm.myPredicate = null;
@@ -149,6 +149,10 @@ angular.module('equizModule').controller('ReviewController', ReviewController);
 
         return output;
     }
+
+    vm.setStudent = function (student) {
+        sharedProperties.selectedStudent = student;
+    };
 };
 
 })(angular);

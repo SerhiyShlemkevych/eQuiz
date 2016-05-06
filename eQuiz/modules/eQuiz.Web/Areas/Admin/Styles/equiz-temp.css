@@ -26,3 +26,87 @@ th, td {
 .groupBtn {
     float:right;
 }
+
+.tabLabels {
+    margin: 0;
+    padding: 0 5px 0 0;
+    float: left;
+    list-style: none;
+    height: 32px;
+    border-bottom: 1px solid #999;
+    border-left: 1px solid #999;
+    width: auto;
+}
+
+#tabContainer {
+    height:auto;
+    border:1px solid gray;
+    padding:40px;
+    width:90em;
+}
+
+.tabLabels li {
+    float: left;
+    margin: 0;
+    padding: 0;
+    height: 31px;
+    line-height: 31px;
+    border: 1px solid #999;
+    border-left: none;
+    margin-bottom: -1px;
+    background: #F0F0F0;
+    overflow: hidden;
+    position: relative;
+}
+
+.tabLabels li a {
+    text-decoration: none;
+    color: #000;
+    display: block;
+    font-size: 1.2em;
+    padding: 0 20px;
+    border: 1px solid #fff;
+    outline: none;
+}
+
+.tabLabels li a:hover {
+    background: #ccc;
+    cursor:pointer;
+}   
+
+html .tabLabels li.active, html .tabLabels li.active a:hover  {
+    background: #fff;
+    border-bottom: 1px solid #fff;
+}
+
+.tabLabels li a.selected
+{
+    color: #000;
+    font-weight:bold;
+    background-color: #fff;
+    border-bottom: 1px solid #fff;
+}
+
+.footerButtons {
+    text-align:center;
+    font:14px
+}
+
+.footerButtons button {
+    width:170px; 
+    height:40px
+}
+
+.footerButtons div {
+    width:200px;
+    height:auto;
+    display:inline-block;
+}
+
+.ng-invalid.ng-touched {
+border: 1px solid red;
+}
+
+.ng-valid.ng-touched {
+border: 1px solid green;
+}

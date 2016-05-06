@@ -1,38 +1,42 @@
 ﻿(function (angular) {
 	angular.module('equizModule').controller('StudentController', StudentController);
 
-	StudentController.$inject = ['$scope', '$filter', 'studentDataService', 'sharedProperties'];
+	StudentController.$inject = ['$scope', '$filter', 'studentDataService', 'sharedProperties', '$element'];
 
-	function StudentController($scope, $filter, studentDataService, sharedProperties) {
+	function StudentController($scope, $filter, studentDataService, sharedProperties, $element) {
 	    var vm = this;
+
+	    $element.on('$destroy', function () {
+	        $scope.$destroy();
+	    });
 
 	    vm.studentInfo = {};
 		vm.studentQuizzes = [];
 		vm.studentComments = [];
 
 		vm.studentQuizzesHeaders = [
-{
-    name: 'Name',
-    field: 'name',
-    predicateIndex: 0
-}, {
-    name: 'State',
-    field: 'state',
-    predicateIndex: 1
-}, {
-    name: 'Questions',
-    field: 'questions',
-    predicateIndex: 2
-}, {
-    name: 'Verification Type',
-    field: 'verificationType',
-    predicateIndex: 3
-}, {
-    name: 'Other details',
-    field: 'otherDetails',
-    predicateIndex: 4
-}
-		];
+        {
+            name: 'Name',
+            field: 'name',
+            predicateIndex: 0
+        }, {
+            name: 'State',
+            field: 'state',
+            predicateIndex: 1
+        }, {
+            name: 'Questions',
+            field: 'questions',
+            predicateIndex: 2
+        }, {
+            name: 'Verification Type',
+            field: 'verificationType',
+            predicateIndex: 3
+        }, {
+            name: 'Other details',
+            field: 'otherDetails',
+            predicateIndex: 4
+        }
+		        ];
 		vm.myPredicate = null;
 		vm.newComment = {};
 		vm.currentTab = 'Profile';
@@ -161,12 +165,6 @@
 		    console.log(sharedProperties.selectedQuiz);
 		};
 
-		vm.getWatchersLength = function () {
-		    var watchers = [];
-		    angular.forEach($scope.$$watchers, function (watcher) {
-		        watchers.push(watcher.exp);
-		    })
-		    return watchers
-		}
+		
 	};
 })(angular);

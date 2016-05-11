@@ -42,6 +42,7 @@ ReviewController.$inject = ['$scope', '$filter', 'reviewDataService', 'sharedPro
         //    });
         //});
         vm.content = reviewDataService.getStudents()
+        generatePredicate();
     };
 
     activate();
@@ -50,10 +51,13 @@ ReviewController.$inject = ['$scope', '$filter', 'reviewDataService', 'sharedPro
         vm.myPredicate = [null, null, null];
     };
 
+    function clearPredicatesExcept(index) {
+        var temp = vm.myPredicate[index];
+        generatePredicate();
+        vm.myPredicate[index] = temp;
+    };
+
     vm.refreshPredicate = function (index) {
-        if (vm.myPredicate === null) {
-          generatePredicate();
-      }
       if (vm.myPredicate[index] === null) {
           var item = null;
           switch (index) {
@@ -75,6 +79,7 @@ ReviewController.$inject = ['$scope', '$filter', 'reviewDataService', 'sharedPro
       else if (vm.myPredicate[index][0] === '-') {
           vm.myPredicate[index] = null;
       }
+      clearPredicatesExcept(index);
   };
 
     vm.direction = function (index) {

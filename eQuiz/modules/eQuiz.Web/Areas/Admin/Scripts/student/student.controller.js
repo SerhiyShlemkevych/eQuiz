@@ -56,6 +56,7 @@
 		    vm.studentInfo = studentDataService.getStudentInfo(sharedProperties.selectedStudent);
 		    vm.studentQuizzes = studentDataService.getStudentQuizzes(sharedProperties.selectedStudent);
 		    vm.studentComments = studentDataService.getStudentComments(sharedProperties.selectedStudent);
+		    generatePredicate();
 		};
         
 		activate();
@@ -64,10 +65,13 @@
 		    vm.myPredicate = [null, null, null, null, null];
 		};
 
+		function clearPredicatesExcept(index) {
+		    var temp = vm.myPredicate[index];
+		    generatePredicate();
+		    vm.myPredicate[index] = temp;
+		};
+
 		vm.refreshPredicate = function (index) {
-		    if (vm.myPredicate === null) {
-		        generatePredicate();
-		    }
 		    if (vm.myPredicate[index] === null) {
 		        var item = null;
 		        switch (index) {
@@ -95,6 +99,7 @@
 		    else if (vm.myPredicate[index][0] === '-') {
 		        vm.myPredicate[index] = null;
 		    }
+		    clearPredicatesExcept(index);
 		};
 		
 		vm.direction = function (index) {

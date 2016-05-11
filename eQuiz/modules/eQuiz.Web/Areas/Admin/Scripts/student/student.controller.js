@@ -142,6 +142,8 @@
 
 		vm.saveProfile = function () {
 		    studentDataService.saveProfileInfo(vm.studentInfo, vm.studentComments);
+            //Here has popUp be called
+		    
 		    vm.modelChanged = false;
 		};
 

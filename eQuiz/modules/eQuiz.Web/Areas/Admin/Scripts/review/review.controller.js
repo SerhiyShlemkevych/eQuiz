@@ -112,8 +112,12 @@ ReviewController.$inject = ['$scope', '$filter', 'reviewDataService', 'sharedPro
 
     $scope.setSelectedGroup = function () { // DONT PUT THIS FUNCTION INTO VM! let it be in scope (because of 'this' in function)
         var id = this.group;
-        if (_.contains(vm.selectedGroup, id)) {
-            vm.selectedGroup = _.without(vm.selectedGroup, id);
+        if (vm.selectedGroup.toString().indexOf(id.toString()) > -1) {
+            for (var i = 0; i < vm.selectedGroup.length; i++) {
+                if (vm.selectedGroup[i] === id) {
+                    vm.selectedGroup.splice(i, 1);
+                }
+            }
         } else {
             vm.selectedGroup.push(id);
         }
@@ -121,7 +125,7 @@ ReviewController.$inject = ['$scope', '$filter', 'reviewDataService', 'sharedPro
     };
 
     vm.isChecked = function (group) {
-        if (_.contains(vm.selectedGroup, group)) {
+        if (vm.selectedGroup.toString().indexOf(group.toString()) > -1) {
             return 'icon-ok pull-right';
         }
         return false;

@@ -110,7 +110,6 @@
     <Content Include="Scripts\app\shared\equiz.module.js" />
     <Content Include="Scripts\libs\angularjs\angular.js" />
     <Content Include="Scripts\libs\angularjs\angular.min.js" />
-    <Content Include="Scripts\libs\Underscore\underscore-min.js" />
     <Content Include="Styles\equiz-temp.css" />
     <Content Include="Web.config" />
   </ItemGroup>

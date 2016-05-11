@@ -29,7 +29,7 @@
                     <thead>
                         <tr>
                             <th ng-repeat="h in sc.studentQuizzesHeaders">
-                                <a href="#" ng-click="sc.refreshPredicate(h.predicateIndex); sc.order(sc.myPredicate,null)">
+                                <a href="#" ng-click="sc.refreshPredicate(h.predicateIndex); sc.order(sc.myPredicate[h.predicateIndex],null)">
                                     <span class="sortorder" ng-show="sc.direction(h.predicateIndex) !== null" ng-class="{direction:sc.direction(h.predicateIndex)}"></span>
                                     {{h.name}}
                                 </a>

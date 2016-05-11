@@ -9,7 +9,7 @@
             <thead>
                 <tr>
                     <th ng-repeat="h in rc.headers">
-                        <a href="#" ng-click="rc.refreshPredicate(h.predicateIndex); rc.order(rc.myPredicate,null)">
+                        <a href="#" ng-click="rc.refreshPredicate(h.predicateIndex); rc.order(rc.myPredicate[h.predicateIndex],null)">
                             <span class="sortorder" ng-show="rc.direction(h.predicateIndex) !== null" ng-class="{direction:rc.direction(h.predicateIndex)}"></span>
                             {{h.name}}
                         </a>                        

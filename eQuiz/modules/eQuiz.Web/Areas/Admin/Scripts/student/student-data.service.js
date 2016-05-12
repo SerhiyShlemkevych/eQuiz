@@ -21,6 +21,7 @@
             //var promise = $http.get("/Main/GetStudentInfo", studentId);
             //return promise;
             return {
+                id:1,
                 firstName: 'Eugene',
                 lastName: 'Shtefaniuk',
                 phone: '555-15-734',
@@ -34,6 +35,7 @@
             //return promise;
             return [
                 {
+                    id:1,
                     name: 'Quiz 1',
                     state: 'Passed',
                     questions: 20,
@@ -41,6 +43,7 @@
                     otherDetails: 'Details 1'
                 },
                 {
+                    id:2,
                     name: 'Quiz 2',
                     state: 'In Verification',
                     questions: 10,
@@ -48,6 +51,7 @@
                     otherDetails: 'Details 2'
                 },
                 {
+                    id:3,
                     name: 'Quiz 3',
                     state: 'Not passed',
                     questions: 20,

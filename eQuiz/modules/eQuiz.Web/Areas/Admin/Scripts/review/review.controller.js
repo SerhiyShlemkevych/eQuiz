@@ -96,7 +96,7 @@ ReviewController.$inject = ['$scope', '$filter', 'reviewDataService', 'sharedPro
   };
 
     vm.numberOfPages = function () {
-        return Math.ceil(vm.content.length / vm.resultsPerPage);
+        return Math.ceil(vm.searchFiltered.length / vm.resultsPerPage);
     };
 
     vm.getNumber = function (num) {

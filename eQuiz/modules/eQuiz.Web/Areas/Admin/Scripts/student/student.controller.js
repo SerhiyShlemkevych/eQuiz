@@ -42,7 +42,11 @@
 		vm.currentTab = 'Profile';
 		vm.newCommentFrame = false;
 		vm.modelChanged = false;
+
 		var orderBy = $filter('orderBy');
+		vm.resultsCount = [10, 25, 50, 100];
+		vm.tablePage = 0;
+		vm.resultsPerPage = 10;
 
 		var activate = function () {
 		    //var studentInfoPromise = studentDataService.getStudentInfo(sharedProperties.selectedStudent);
@@ -60,6 +64,18 @@
 		};
         
 		activate();
+
+		vm.numberOfPages = function () {
+		    return Math.ceil(vm.studentQuizzes.length / vm.resultsPerPage);
+		};
+
+		vm.getNumber = function (num) {
+		    return new Array(num);
+		};
+
+		vm.goToPage = function (page) {
+		    vm.tablePage = page;
+		};
 
 		function generatePredicate() {
 		    vm.myPredicate = [null, null, null, null, null];

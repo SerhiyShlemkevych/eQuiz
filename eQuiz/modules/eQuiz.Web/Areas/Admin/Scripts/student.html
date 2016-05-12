@@ -29,7 +29,7 @@
                     <thead>
                         <tr>
                             <th ng-repeat="h in sc.studentQuizzesHeaders">
-                                <a href="#" ng-click="sc.refreshPredicate(h.predicateIndex); sc.order(sc.myPredicate[h.predicateIndex],null)">
+                                <a href="#" class="link" ng-click="sc.refreshPredicate(h.predicateIndex); sc.order(sc.myPredicate[h.predicateIndex],null)">
                                     <span class="sortorder" ng-show="sc.direction(h.predicateIndex) !== null" ng-class="{direction:sc.direction(h.predicateIndex)}"></span>
                                     {{h.name}}
                                 </a>
@@ -37,8 +37,8 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr ng-repeat="q in sc.studentQuizzes">
-                            <td><a ng-click="sc.setQuiz(q.name); lc.GoToQuiz()">{{q.name}}</a></td>
+                        <tr ng-repeat="q in sc.studentQuizzes | startFrom: sc.tablePage*sc.resultsPerPage | limitTo:sc.resultsPerPage" style="height: 50px">
+                            <td><a class="link" ng-click="sc.setQuiz(q.name); lc.GoToQuiz()">{{q.name}}</a></td>
                             <td>{{q.state}}</td>
                             <td>{{q.questions}}</td>
                             <td>{{q.verificationType}}</td>
@@ -46,6 +46,19 @@
                         </tr>
                     </tbody>
                 </table> 
+                 <div layout="row">
+                     <span>
+                         Rows on the page:
+                         <select class="md-primary" ng-model="sc.resultsPerPage" ng-options="p for p in sc.resultsCount"></select>
+                     </span>
+                     <span ng-show="sc.numberOfPages() &gt; 1">
+                         <button ng-disabled="sc.tablePage==0" ng-click="sc.tablePage=sc.tablePage-1">Previous page</button>
+                         <span ng-repeat="i in sc.getNumber(sc.numberOfPages()) track by $index">
+                             <button ng-click="sc.goToPage($index)"><span ng-class="{ 'table-active-page' : sc.tablePage==$index}">{{$index+1}}</span></button>
+                         </span>
+                         <button ng-disabled="sc.tablePage==sc.numberOfPages()-1" ng-click="sc.tablePage=sc.tablePage+1">Next page</button>
+                     </span>
+                 </div>
             </div>
 
      <div id="commentsTab" ng-show="sc.currentTab=='Comments'">
@@ -55,18 +68,16 @@
                         {{comment.text}}
                     </div>
                 </div>
-                <a ng-click="sc.toggleNewCommentFrame()">Add new</a>
+                <a class="link" ng-click="sc.toggleNewCommentFrame()">Add new</a>
                 <form name="addNewCommentForm" ng-submit = "sc.addComment()" ng-show="sc.newCommentFrame">
-                    <label>Date:</label>
-                    <input name="commentDate" type="date" ng-model="sc.newComment.date" required />
                     <label>Author:</label>
-                    <input name="commentAuthor" type="text" ng-model="sc.newComment.author" required />
+                    <input class="authorTextBox" name="commentAuthor" type="text" ng-model="sc.newComment.author" required />
                     <label>Text:</label>
-                    <input name="commentText" type="text" ng-model="sc.newComment.text" required />
+                    <textarea class="commentTextBox" name="commentText" ng-model="sc.newComment.text" cols="80" rows="5" required></textarea>
                     <br />
 
                     <button type="submit">Add comment</button>
-                    <button ng-click="sc.toggleNewCommentFrame()">Cancel</button>
+                    <button ng-click="sc.toggleNewCommentFrame()">Close</button>
                 </form>
             </div>
 </div>

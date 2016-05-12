@@ -128,3 +128,66 @@ border: 1px solid red;
 .ng-valid.ng-touched {
 border: 1px solid green;
 }
+
+/* Next are quizReview styles */
+
+div.confirm_btns_section {    
+    text-align: center;    
+    padding: 10px 50px 10px 50px;
+    margin: 10px;    
+}
+
+button.btn-good:hover {
+    background: lightgreen;   
+    color: black;
+}
+
+button.btn-neutral:hover {
+    background: lightgrey;    
+    color: black;
+}
+button.btn-bad:hover {
+    background: lightcoral;      
+    color: black;
+}
+
+button.btn-standart {
+    background: white;
+    color: black;
+}
+
+/*button.btn-good {
+    background: lightgreen;    
+}
+
+button.btn_neutral {
+    background: lightgrey;    
+}
+button.btn-bad {
+    background: lightcoral;      
+}*/
+
+.btn_spacing {
+    margin: 0px 5px 0px 5px;
+}
+
+.btn_length {
+    width: 100px;
+}
+
+.display_inline {
+    display: inline-block;         
+    margin: 5px 50px 0px 5px;
+}
+
+.spacing {
+    margin: 10px 30px;
+    padding: 0px 5px 0px 5px;
+}
+
+.textarea {
+    width: 95%;
+    height: 100px;   
+}
+
+/* quizReview Styles END */

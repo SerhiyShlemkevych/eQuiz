@@ -91,6 +91,9 @@
   <ItemGroup>
     <Content Include="Areas\Admin\Scripts\compile.directive.js" />
     <Content Include="Areas\Admin\Scripts\layout.controller.js" />
+    <Content Include="Areas\Admin\Scripts\quizReview.html" />
+    <Content Include="Areas\Admin\Scripts\quizReview\quizReview-data.service.js" />
+    <Content Include="Areas\Admin\Scripts\quizReview\quizReview.controller.js" />
     <Content Include="Areas\Admin\Scripts\shared-values.service.js" />
     <Content Include="Areas\Admin\Scripts\review\group.filter.js" />
     <Content Include="Areas\Admin\Scripts\review\highlight.filter.js" />

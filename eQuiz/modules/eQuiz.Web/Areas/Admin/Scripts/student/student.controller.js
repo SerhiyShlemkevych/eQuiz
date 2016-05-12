@@ -61,8 +61,8 @@
 		    vm.studentQuizzes = studentDataService.getStudentQuizzes(sharedProperties.selectedStudent);
 		    vm.studentComments = studentDataService.getStudentComments(sharedProperties.selectedStudent);
 		    generatePredicate();
-		    vm.studentQuizzes = $filter('orderBy')(vm.studentQuizzes, 'date', true);
-		    sortComments();
+		    vm.studentQuizzes = sortByDate(vm.studentQuizzes);
+		    vm.studentComments = sortByDate(vm.studentComments);
 		};
         
 		activate();
@@ -180,7 +180,7 @@
 		    vm.studentComments.push(vm.newComment);
 		    vm.modelChanged = true;
 		    vm.toggleNewCommentFrame();
-		    sortComments();
+		    vm.studentComments = sortByDate(vm.studentComments);
 		};
 
 		vm.validationCheck = function () {
@@ -192,13 +192,12 @@
 		    console.log(sharedProperties.selectedQuiz);
 		};
 
-		function sortComments() {
-		    vm.studentComments = $filter('orderBy')(vm.studentComments, function (item) {
-		        console.log(item);
+		function sortByDate(array) {
+		    return $filter('orderBy')(array, function (item) {
 		        var parts = item.date.split('.');
-		        return new Date(parseInt(parts[2],
+		        return new Date(parseInt(parts[2]),
                         parseInt(parts[1]),
-                        parseInt(parts[0])));
+                        parseInt(parts[0]));
 		    }, true);
 		};
 	};

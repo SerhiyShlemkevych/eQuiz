@@ -61,6 +61,8 @@
 		    vm.studentQuizzes = studentDataService.getStudentQuizzes(sharedProperties.selectedStudent);
 		    vm.studentComments = studentDataService.getStudentComments(sharedProperties.selectedStudent);
 		    generatePredicate();
+		    vm.studentQuizzes = sortByDate(vm.studentQuizzes);
+		    vm.studentComments = sortByDate(vm.studentComments);
 		};
         
 		activate();
@@ -174,9 +176,11 @@
 		};
 
 		vm.addComment = function () {
+		    vm.newComment.date = (new Date().toLocaleDateString());
 		    vm.studentComments.push(vm.newComment);
 		    vm.modelChanged = true;
 		    vm.toggleNewCommentFrame();
+		    vm.studentComments = sortByDate(vm.studentComments);
 		};
 
 		vm.validationCheck = function () {
@@ -188,6 +192,13 @@
 		    console.log(sharedProperties.selectedQuiz);
 		};
 
-		
+		function sortByDate(array) {
+		    return $filter('orderBy')(array, function (item) {
+		        var parts = item.date.split('.');
+		        return new Date(parseInt(parts[2]),
+                        parseInt(parts[1]),
+                        parseInt(parts[0]));
+		    }, true);
+		};
 	};
 })(angular);

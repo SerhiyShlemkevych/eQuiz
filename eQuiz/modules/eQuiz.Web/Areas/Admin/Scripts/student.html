@@ -9,18 +9,23 @@
         </div>
 
  <div id="tabContainer">
-            <div id="profileTab" ng-show="sc.currentTab=='Profile'">
+     <div id="profileTab" ng-show="sc.currentTab=='Profile'">
                 <form name='profileInfo' ng-submit="sc.saveProfile()" >
-                    <label>First Name</label>
-                    <input type="text" name = "firstName" ng-model="sc.studentInfo.firstName" ng-change="sc.modelChanged = true;" required /><br /><br />
-                    <label>Last Name</label>
-                    <input type="text" name = "lastName" ng-model="sc.studentInfo.lastName" ng-change="sc.modelChanged = true;" required /><br /><br />
-                    <label>Phone</label>
-                    <input type="tel" name = "phone" ng-model="sc.studentInfo.phone" ng-change="sc.modelChanged = true;" required /><br /><br />
-                    <label>E-Mail</label>
-                    <input type="email" ng-model="sc.studentInfo.email" readonly/><br /><br />
-                    <label>User group</label>
-                    <input type="text" ng-model="sc.studentInfo.userGroup" readonly/><br /><br />
+                    <div style="float:left; position:relative; margin-right:40px">
+                        <label>First Name</label>
+                        <input type="text" name="firstName" ng-model="sc.studentInfo.firstName" ng-change="sc.modelChanged = true;" required /><br /><br />
+                        <label>Last Name</label>
+                        <input type="text" name="lastName" ng-model="sc.studentInfo.lastName" ng-change="sc.modelChanged = true;" required /><br /><br />
+                        <label>Phone</label>
+                        <input type="tel" name="phone" ng-model="sc.studentInfo.phone" ng-change="sc.modelChanged = true;" required /><br /><br />
+                    </div>
+                    <div style="position:relative">
+                        <label>E-Mail</label>
+                        <input type="email" ng-model="sc.studentInfo.email" readonly /><br /><br />
+                        <label>User group</label>
+                        <input type="text" ng-model="sc.studentInfo.userGroup" readonly /><br /><br />
+
+                    </div>
                 </form>
             </div>
 
@@ -62,32 +67,35 @@
             </div>
 
      <div id="commentsTab" ng-show="sc.currentTab=='Comments'">
-                <div ng-repeat="comment in sc.studentComments">
-                    <label>{{comment.date + ' by ' + comment.author }}</label>
-                    <div style="border:1px solid grey; width:500px; height:auto">
-                        {{comment.text}}
-                    </div>
-                </div>
-                <a class="link" ng-click="sc.toggleNewCommentFrame()">Add new</a>
+         <div style="float:left; position:relative; margin-right:40px; width:550px">
+             <div style="height:300px; overflow:auto" width:auto>
+                 <div ng-repeat="comment in sc.studentComments">
+                     <label>{{comment.date + ' by ' + comment.author }}</label>
+                     <div style="border:1px solid grey; width:500px; height:auto">
+                         {{comment.text}}
+                     </div>
+                 </div>
+             </div>
+             <a class="link" ng-click="sc.toggleNewCommentFrame()">Add new</a>
+         </div>
+         <div style="position:relative">
                 <form name="addNewCommentForm" ng-submit = "sc.addComment()" ng-show="sc.newCommentFrame">
                     <label>Author:</label>
                     <input class="authorTextBox" name="commentAuthor" type="text" ng-model="sc.newComment.author" required />
                     <label>Text:</label>
                     <textarea class="commentTextBox" name="commentText" ng-model="sc.newComment.text" cols="80" rows="5" required></textarea>
                     <br />
-
                     <button type="submit">Add comment</button>
                     <button ng-click="sc.toggleNewCommentFrame()">Close</button>
                 </form>
-            </div>
+         </div>
+    </div>
 </div>
 <br />
-        <div class="footerButtons" layout="row">
-            <button ng-click="sc.saveProfile()" ng-disabled="!sc.validationCheck()">Save</button>
-            <div></div>
-            <button ng-click="sc.cancelProfile()">Cancel</button>
-        </div>
-</div>
-
+    <div class="footerButtons" layout="row">
+        <button ng-click="sc.saveProfile()" ng-disabled="!sc.validationCheck()">Save</button>
+        <div></div>
+        <button ng-click="sc.cancelProfile()">Cancel</button>
+    </div>
 
 <script src="~/Scripts/app/admin/student/equiz.studentController.js"></script>

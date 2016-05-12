@@ -40,7 +40,8 @@
                     state: 'Passed',
                     questions: 20,
                     verificationType: 'Auto',
-                    otherDetails: 'Details 1'
+                    otherDetails: 'Details 1',
+                    date: '15.05.2016'
                 },
                 {
                     id:2,
@@ -48,7 +49,8 @@
                     state: 'In Verification',
                     questions: 10,
                     verificationType: 'Manual',
-                    otherDetails: 'Details 2'
+                    otherDetails: 'Details 2',
+                    date: '04.04.2016'
                 },
                 {
                     id:3,
@@ -56,7 +58,8 @@
                     state: 'Not passed',
                     questions: 20,
                     verificationType: 'Combined (A:12, M:8)',
-                    otherDetails: 'Details 3'
+                    otherDetails: 'Details 3',
+                    date: '10.05.2016'
                 }
             ];
         }
@@ -75,7 +78,58 @@
                     date: '03.05.2016',
                     author: 'Ivan',
                     text: 'Demonstrates deep theoretical knowledge'
-                }];
+                },
+                                {
+                                    date: '22.04.2016',
+                                    author: 'Volodymyr',
+                                    text: 'Responsible, initiative student with excellent knowledge of necessary frameworks'
+                                },
+                {
+                    date: '10.05.2016',
+                    author: 'Ivan',
+                    text: 'Demonstrates deep theoretical knowledge'
+                },
+                                {
+                                    date: '10.04.2016',
+                                    author: 'Volodymyr',
+                                    text: 'Responsible, initiative student with excellent knowledge of necessary frameworks'
+                                },
+                {
+                    date: '10.05.2016',
+                    author: 'Ivan',
+                    text: 'Demonstrates deep theoretical knowledge'
+                },
+                                {
+                                    date: '10.04.2016',
+                                    author: 'Volodymyr',
+                                    text: 'Responsible, initiative student with excellent knowledge of necessary frameworks'
+                                },
+                {
+                    date: '11.05.2016',
+                    author: 'Ivan',
+                    text: 'Demonstrates deep theoretical knowledge'
+                },
+                                {
+                                    date: '15.04.2016',
+                                    author: 'Volodymyr',
+                                    text: 'Responsible, initiative student with excellent knowledge of necessary frameworks'
+                                },
+                {
+                    date: '12.05.2016',
+                    author: 'Ivan',
+                    text: 'Demonstrates deep theoretical knowledge'
+                },
+                                {
+                                    date: '12.04.2016',
+                                    author: 'Volodymyr',
+                                    text: 'Responsible, initiative student with excellent knowledge of necessary frameworks'
+                                },
+                {
+                    date: '13.05.2016',
+                    author: 'Ivan',
+                    text: 'Demonstrates deep theoretical knowledge'
+                }
+            ];
         }
 
         function saveProfileInfo(studentInfo, studentComments) {

@@ -39,7 +39,7 @@ th, td {
 }
 
 #tabContainer {
-    height:auto;
+    height:300px;
     border:1px solid gray;
     padding:40px;
     width:90em;

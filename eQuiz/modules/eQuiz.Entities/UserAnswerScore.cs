@@ -19,6 +19,6 @@ namespace eQuiz.Entities
         public int EvaluatedBy { get; set; }
         public System.DateTime EvaluatedAt { get; set; }
     
-        public virtual User tblUser { get; set; }
+        public virtual User User { get; set; }
     }
 }

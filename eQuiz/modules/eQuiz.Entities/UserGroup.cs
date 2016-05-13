@@ -17,16 +17,16 @@ namespace eQuiz.Entities
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public UserGroup()
         {
-            this.tblQuizs = new HashSet<Quiz>();
-            this.tblUserToUserGroups = new HashSet<UserToUserGroup>();
+            this.Quizs = new HashSet<Quiz>();
+            this.UserToUserGroups = new HashSet<UserToUserGroup>();
         }
     
         public int Id { get; set; }
         public string Name { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Quiz> tblQuizs { get; set; }
+        public virtual ICollection<Quiz> Quizs { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<UserToUserGroup> tblUserToUserGroups { get; set; }
+        public virtual ICollection<UserToUserGroup> UserToUserGroups { get; set; }
     }
 }

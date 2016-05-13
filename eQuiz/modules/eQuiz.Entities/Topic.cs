@@ -17,8 +17,8 @@ namespace eQuiz.Entities
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Topic()
         {
-            this.tblQuestions = new HashSet<Question>();
-            this.tblQuizBlocks = new HashSet<QuizBlock>();
+            this.Questions = new HashSet<Question>();
+            this.QuizBlocks = new HashSet<QuizBlock>();
         }
     
         public int Id { get; set; }
@@ -26,8 +26,8 @@ namespace eQuiz.Entities
         public string Description { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Question> tblQuestions { get; set; }
+        public virtual ICollection<Question> Questions { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<QuizBlock> tblQuizBlocks { get; set; }
+        public virtual ICollection<QuizBlock> QuizBlocks { get; set; }
     }
 }

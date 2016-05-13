@@ -17,7 +17,7 @@ namespace eQuiz.Entities
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public QuestionAnswer()
         {
-            this.tblUserAnswers = new HashSet<UserAnswer>();
+            this.UserAnswers = new HashSet<UserAnswer>();
         }
     
         public int Id { get; set; }
@@ -26,8 +26,8 @@ namespace eQuiz.Entities
         public Nullable<byte> AnswerOrder { get; set; }
         public Nullable<bool> IsRight { get; set; }
     
-        public virtual Question tblQuestion { get; set; }
+        public virtual Question Question { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<UserAnswer> tblUserAnswers { get; set; }
+        public virtual ICollection<UserAnswer> UserAnswers { get; set; }
     }
 }

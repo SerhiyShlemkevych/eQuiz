@@ -17,7 +17,7 @@ namespace eQuiz.Entities
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public QuestionType()
         {
-            this.tblQuestions = new HashSet<Question>();
+            this.Questions = new HashSet<Question>();
         }
     
         public int Id { get; set; }
@@ -25,6 +25,6 @@ namespace eQuiz.Entities
         public bool IsAutomatic { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Question> tblQuestions { get; set; }
+        public virtual ICollection<Question> Questions { get; set; }
     }
 }

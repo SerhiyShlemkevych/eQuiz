@@ -18,7 +18,7 @@ namespace eQuiz.Entities
         public int QuestionId { get; set; }
         public int TagId { get; set; }
     
-        public virtual Question tblQuestion { get; set; }
-        public virtual Tag tblTag { get; set; }
+        public virtual Question Question { get; set; }
+        public virtual Tag Tag { get; set; }
     }
 }

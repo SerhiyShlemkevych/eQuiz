@@ -23,6 +23,6 @@ namespace eQuiz.Entities
         public string ProfileLink { get; set; }
         public System.DateTime ObtainedDate { get; set; }
     
-        public virtual User tblUser { get; set; }
+        public virtual User User { get; set; }
     }
 }

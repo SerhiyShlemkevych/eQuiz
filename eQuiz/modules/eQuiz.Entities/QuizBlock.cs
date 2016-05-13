@@ -17,8 +17,8 @@ namespace eQuiz.Entities
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public QuizBlock()
         {
-            this.tblQuizPassQuestions = new HashSet<QuizPassQuestion>();
-            this.tblQuizQuestions = new HashSet<QuizQuestion>();
+            this.QuizPassQuestions = new HashSet<QuizPassQuestion>();
+            this.QuizQuestions = new HashSet<QuizQuestion>();
         }
     
         public int Id { get; set; }
@@ -30,11 +30,11 @@ namespace eQuiz.Entities
         public Nullable<byte> QuestionMaxComplexity { get; set; }
         public Nullable<byte> QuestionCount { get; set; }
     
-        public virtual Quiz tblQuiz { get; set; }
-        public virtual Topic tblTopic { get; set; }
+        public virtual Quiz Quiz { get; set; }
+        public virtual Topic Topic { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<QuizPassQuestion> tblQuizPassQuestions { get; set; }
+        public virtual ICollection<QuizPassQuestion> QuizPassQuestions { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<QuizQuestion> tblQuizQuestions { get; set; }
+        public virtual ICollection<QuizQuestion> QuizQuestions { get; set; }
     }
 }

@@ -17,7 +17,7 @@ namespace eQuiz.Entities
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public QuizPassQuestion()
         {
-            this.tblUserAnswers = new HashSet<UserAnswer>();
+            this.UserAnswers = new HashSet<UserAnswer>();
         }
     
         public int Id { get; set; }
@@ -26,10 +26,10 @@ namespace eQuiz.Entities
         public int QuizBlockId { get; set; }
         public short QuestionOrder { get; set; }
     
-        public virtual Question tblQuestion { get; set; }
-        public virtual QuizBlock tblQuizBlock { get; set; }
-        public virtual QuizPass tblQuizPass { get; set; }
+        public virtual Question Question { get; set; }
+        public virtual QuizBlock QuizBlock { get; set; }
+        public virtual QuizPass QuizPass { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<UserAnswer> tblUserAnswers { get; set; }
+        public virtual ICollection<UserAnswer> UserAnswers { get; set; }
     }
 }

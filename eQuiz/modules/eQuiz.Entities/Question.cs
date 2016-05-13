@@ -17,10 +17,10 @@ namespace eQuiz.Entities
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Question()
         {
-            this.tblQuestionAnswers = new HashSet<QuestionAnswer>();
-            this.tblQuestionTags = new HashSet<QuestionTag>();
-            this.tblQuizPassQuestions = new HashSet<QuizPassQuestion>();
-            this.tblQuizQuestions = new HashSet<QuizQuestion>();
+            this.QuestionAnswers = new HashSet<QuestionAnswer>();
+            this.QuestionTags = new HashSet<QuestionTag>();
+            this.QuizPassQuestions = new HashSet<QuizPassQuestion>();
+            this.QuizQuestions = new HashSet<QuizQuestion>();
         }
     
         public int Id { get; set; }
@@ -30,15 +30,15 @@ namespace eQuiz.Entities
         public byte QuestionComplexity { get; set; }
         public bool IsActive { get; set; }
     
-        public virtual QuestionType tblQuestionType { get; set; }
-        public virtual Topic tblTopic { get; set; }
+        public virtual QuestionType QuestionType { get; set; }
+        public virtual Topic Topic { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<QuestionAnswer> tblQuestionAnswers { get; set; }
+        public virtual ICollection<QuestionAnswer> QuestionAnswers { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<QuestionTag> tblQuestionTags { get; set; }
+        public virtual ICollection<QuestionTag> QuestionTags { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<QuizPassQuestion> tblQuizPassQuestions { get; set; }
+        public virtual ICollection<QuizPassQuestion> QuizPassQuestions { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<QuizQuestion> tblQuizQuestions { get; set; }
+        public virtual ICollection<QuizQuestion> QuizQuestions { get; set; }
     }
 }

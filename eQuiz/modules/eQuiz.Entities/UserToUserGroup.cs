@@ -18,7 +18,7 @@ namespace eQuiz.Entities
         public int UserId { get; set; }
         public int GroupId { get; set; }
     
-        public virtual User tblUser { get; set; }
-        public virtual UserGroup tblUserGroup { get; set; }
+        public virtual User User { get; set; }
+        public virtual UserGroup UserGroup { get; set; }
     }
 }

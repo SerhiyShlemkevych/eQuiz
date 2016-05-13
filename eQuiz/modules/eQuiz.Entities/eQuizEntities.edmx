@@ -631,7 +631,7 @@
           <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="ProfileLink" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="ObtainedDate" Type="DateTime" Nullable="false" Precision="3" />
-          <NavigationProperty Name="tblUser" Relationship="Self.FK_tblFacebookUser_tblUser" FromRole="tblFacebookUser" ToRole="tblUser" />
+          <NavigationProperty Name="User" Relationship="Self.FK_tblFacebookUser_tblUser" FromRole="tblFacebookUser" ToRole="tblUser" />
         </EntityType>
         <EntityType Name="Question">
           <Key>
@@ -643,12 +643,12 @@
           <Property Name="QuestionText" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="QuestionComplexity" Type="Byte" Nullable="false" />
           <Property Name="IsActive" Type="Boolean" Nullable="false" />
-          <NavigationProperty Name="tblQuestionType" Relationship="Self.FK_tblQuestion_tblQuestionType" FromRole="tblQuestion" ToRole="tblQuestionType" />
-          <NavigationProperty Name="tblTopic" Relationship="Self.FK_tblQuestion_tblTopic" FromRole="tblQuestion" ToRole="tblTopic" />
-          <NavigationProperty Name="tblQuestionAnswers" Relationship="Self.FK_tblQuestionAnswer_tblQuestion" FromRole="tblQuestion" ToRole="tblQuestionAnswer" />
-          <NavigationProperty Name="tblQuestionTags" Relationship="Self.FK_tblQuestionTag_tblQuestion" FromRole="tblQuestion" ToRole="tblQuestionTag" />
-          <NavigationProperty Name="tblQuizPassQuestions" Relationship="Self.FK_tblQuizPassQuestion_tblQuestion" FromRole="tblQuestion" ToRole="tblQuizPassQuestion" />
-          <NavigationProperty Name="tblQuizQuestions" Relationship="eQuizModel.FK_tblQuizQuestion_tblQuestion" FromRole="tblQuestion" ToRole="tblQuizQuestion" />
+          <NavigationProperty Name="QuestionType" Relationship="Self.FK_tblQuestion_tblQuestionType" FromRole="tblQuestion" ToRole="tblQuestionType" />
+          <NavigationProperty Name="Topic" Relationship="Self.FK_tblQuestion_tblTopic" FromRole="tblQuestion" ToRole="tblTopic" />
+          <NavigationProperty Name="QuestionAnswers" Relationship="Self.FK_tblQuestionAnswer_tblQuestion" FromRole="tblQuestion" ToRole="tblQuestionAnswer" />
+          <NavigationProperty Name="QuestionTags" Relationship="Self.FK_tblQuestionTag_tblQuestion" FromRole="tblQuestion" ToRole="tblQuestionTag" />
+          <NavigationProperty Name="QuizPassQuestions" Relationship="Self.FK_tblQuizPassQuestion_tblQuestion" FromRole="tblQuestion" ToRole="tblQuizPassQuestion" />
+          <NavigationProperty Name="QuizQuestions" Relationship="eQuizModel.FK_tblQuizQuestion_tblQuestion" FromRole="tblQuestion" ToRole="tblQuizQuestion" />
         </EntityType>
         <EntityType Name="QuestionAnswer">
           <Key>
@@ -659,8 +659,8 @@
           <Property Name="AnswerText" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="AnswerOrder" Type="Byte" />
           <Property Name="IsRight" Type="Boolean" />
-          <NavigationProperty Name="tblQuestion" Relationship="Self.FK_tblQuestionAnswer_tblQuestion" FromRole="tblQuestionAnswer" ToRole="tblQuestion" />
-          <NavigationProperty Name="tblUserAnswers" Relationship="Self.FK_tblUserAnswer_tblQuestionAnswer" FromRole="tblQuestionAnswer" ToRole="tblUserAnswer" />
+          <NavigationProperty Name="Question" Relationship="Self.FK_tblQuestionAnswer_tblQuestion" FromRole="tblQuestionAnswer" ToRole="tblQuestion" />
+          <NavigationProperty Name="UserAnswers" Relationship="Self.FK_tblUserAnswer_tblQuestionAnswer" FromRole="tblQuestionAnswer" ToRole="tblUserAnswer" />
         </EntityType>
         <EntityType Name="QuestionTag">
           <Key>
@@ -669,8 +669,8 @@
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="QuestionId" Type="Int32" Nullable="false" />
           <Property Name="TagId" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="tblQuestion" Relationship="Self.FK_tblQuestionTag_tblQuestion" FromRole="tblQuestionTag" ToRole="tblQuestion" />
-          <NavigationProperty Name="tblTag" Relationship="Self.FK_tblQuestionTag_tblTag" FromRole="tblQuestionTag" ToRole="tblTag" />
+          <NavigationProperty Name="Question" Relationship="Self.FK_tblQuestionTag_tblQuestion" FromRole="tblQuestionTag" ToRole="tblQuestion" />
+          <NavigationProperty Name="Tag" Relationship="Self.FK_tblQuestionTag_tblTag" FromRole="tblQuestionTag" ToRole="tblTag" />
         </EntityType>
         <EntityType Name="QuestionType">
           <Key>
@@ -679,7 +679,7 @@
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="TypeName" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="IsAutomatic" Type="Boolean" Nullable="false" />
-          <NavigationProperty Name="tblQuestions" Relationship="Self.FK_tblQuestion_tblQuestionType" FromRole="tblQuestionType" ToRole="tblQuestion" />
+          <NavigationProperty Name="Questions" Relationship="Self.FK_tblQuestion_tblQuestionType" FromRole="tblQuestionType" ToRole="tblQuestion" />
         </EntityType>
         <EntityType Name="Quiz">
           <Key>
@@ -694,10 +694,10 @@
           <Property Name="TimeLimitMinutes" Type="Int16" />
           <Property Name="InternetAccess" Type="Boolean" Nullable="false" />
           <Property Name="GroupId" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="tblUserGroup" Relationship="Self.FK_tblQuiz_tblGroup" FromRole="tblQuiz" ToRole="tblUserGroup" />
-          <NavigationProperty Name="tblQuizType" Relationship="Self.FK_tblQuiz_tblQuizType" FromRole="tblQuiz" ToRole="tblQuizType" />
-          <NavigationProperty Name="tblQuizBlocks" Relationship="Self.FK_tblQuizBlock_tblQuiz" FromRole="tblQuiz" ToRole="tblQuizBlock" />
-          <NavigationProperty Name="tblQuizPasses" Relationship="Self.FK_tblQuizPass_tblQuiz" FromRole="tblQuiz" ToRole="tblQuizPass" />
+          <NavigationProperty Name="UserGroup" Relationship="Self.FK_tblQuiz_tblGroup" FromRole="tblQuiz" ToRole="tblUserGroup" />
+          <NavigationProperty Name="QuizType" Relationship="Self.FK_tblQuiz_tblQuizType" FromRole="tblQuiz" ToRole="tblQuizType" />
+          <NavigationProperty Name="QuizBlocks" Relationship="Self.FK_tblQuizBlock_tblQuiz" FromRole="tblQuiz" ToRole="tblQuizBlock" />
+          <NavigationProperty Name="QuizPasses" Relationship="Self.FK_tblQuizPass_tblQuiz" FromRole="tblQuiz" ToRole="tblQuizPass" />
         </EntityType>
         <EntityType Name="QuizBlock">
           <Key>
@@ -711,10 +711,10 @@
           <Property Name="QuestionMinComplexity" Type="Byte" />
           <Property Name="QuestionMaxComplexity" Type="Byte" />
           <Property Name="QuestionCount" Type="Byte" />
-          <NavigationProperty Name="tblQuiz" Relationship="Self.FK_tblQuizBlock_tblQuiz" FromRole="tblQuizBlock" ToRole="tblQuiz" />
-          <NavigationProperty Name="tblTopic" Relationship="Self.FK_tblQuizBlock_Topic" FromRole="tblQuizBlock" ToRole="tblTopic" />
-          <NavigationProperty Name="tblQuizPassQuestions" Relationship="Self.FK_tblQuizPassQuestion_QuizBlock" FromRole="tblQuizBlock" ToRole="tblQuizPassQuestion" />
-          <NavigationProperty Name="tblQuizQuestions" Relationship="Self.FK_tblQuizQuestion_tblQuizBlock" FromRole="tblQuizBlock" ToRole="tblQuizQuestion" />
+          <NavigationProperty Name="Quiz" Relationship="Self.FK_tblQuizBlock_tblQuiz" FromRole="tblQuizBlock" ToRole="tblQuiz" />
+          <NavigationProperty Name="Topic" Relationship="Self.FK_tblQuizBlock_Topic" FromRole="tblQuizBlock" ToRole="tblTopic" />
+          <NavigationProperty Name="QuizPassQuestions" Relationship="Self.FK_tblQuizPassQuestion_QuizBlock" FromRole="tblQuizBlock" ToRole="tblQuizPassQuestion" />
+          <NavigationProperty Name="QuizQuestions" Relationship="Self.FK_tblQuizQuestion_tblQuizBlock" FromRole="tblQuizBlock" ToRole="tblQuizQuestion" />
         </EntityType>
         <EntityType Name="QuizPass">
           <Key>
@@ -725,9 +725,9 @@
           <Property Name="UserId" Type="Int32" Nullable="false" />
           <Property Name="StartTime" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="FinishTime" Type="DateTime" Precision="0" />
-          <NavigationProperty Name="tblQuiz" Relationship="Self.FK_tblQuizPass_tblQuiz" FromRole="tblQuizPass" ToRole="tblQuiz" />
-          <NavigationProperty Name="tblUser" Relationship="Self.FK_tblQuizPass_tblUser" FromRole="tblQuizPass" ToRole="tblUser" />
-          <NavigationProperty Name="tblQuizPassQuestions" Relationship="Self.FK_tblQuizPassQuestion_tblQuizPass" FromRole="tblQuizPass" ToRole="tblQuizPassQuestion" />
+          <NavigationProperty Name="Quiz" Relationship="Self.FK_tblQuizPass_tblQuiz" FromRole="tblQuizPass" ToRole="tblQuiz" />
+          <NavigationProperty Name="User" Relationship="Self.FK_tblQuizPass_tblUser" FromRole="tblQuizPass" ToRole="tblUser" />
+          <NavigationProperty Name="QuizPassQuestions" Relationship="Self.FK_tblQuizPassQuestion_tblQuizPass" FromRole="tblQuizPass" ToRole="tblQuizPassQuestion" />
         </EntityType>
         <EntityType Name="QuizPassQuestion">
           <Key>
@@ -738,10 +738,10 @@
           <Property Name="QuestionId" Type="Int32" Nullable="false" />
           <Property Name="QuizBlockId" Type="Int32" Nullable="false" />
           <Property Name="QuestionOrder" Type="Int16" Nullable="false" />
-          <NavigationProperty Name="tblQuestion" Relationship="Self.FK_tblQuizPassQuestion_tblQuestion" FromRole="tblQuizPassQuestion" ToRole="tblQuestion" />
-          <NavigationProperty Name="tblQuizBlock" Relationship="Self.FK_tblQuizPassQuestion_QuizBlock" FromRole="tblQuizPassQuestion" ToRole="tblQuizBlock" />
-          <NavigationProperty Name="tblQuizPass" Relationship="Self.FK_tblQuizPassQuestion_tblQuizPass" FromRole="tblQuizPassQuestion" ToRole="tblQuizPass" />
-          <NavigationProperty Name="tblUserAnswers" Relationship="Self.FK_tblUserAnswer_tblQuizPassQuestion" FromRole="tblQuizPassQuestion" ToRole="tblUserAnswer" />
+          <NavigationProperty Name="Question" Relationship="Self.FK_tblQuizPassQuestion_tblQuestion" FromRole="tblQuizPassQuestion" ToRole="tblQuestion" />
+          <NavigationProperty Name="QuizBlock" Relationship="Self.FK_tblQuizPassQuestion_QuizBlock" FromRole="tblQuizPassQuestion" ToRole="tblQuizBlock" />
+          <NavigationProperty Name="QuizPass" Relationship="Self.FK_tblQuizPassQuestion_tblQuizPass" FromRole="tblQuizPassQuestion" ToRole="tblQuizPass" />
+          <NavigationProperty Name="UserAnswers" Relationship="Self.FK_tblUserAnswer_tblQuizPassQuestion" FromRole="tblQuizPassQuestion" ToRole="tblUserAnswer" />
         </EntityType>
         <EntityType Name="QuizPassScore">
           <Key>
@@ -751,7 +751,7 @@
           <Property Name="PassScore" Type="Int16" Nullable="false" />
           <Property Name="EvaluatedBy" Type="Int32" Nullable="false" />
           <Property Name="EvaluatedAt" Type="DateTime" Nullable="false" Precision="0" />
-          <NavigationProperty Name="tblUser" Relationship="Self.FK_tblQuizPassScore_tblUser" FromRole="tblQuizPassScore" ToRole="tblUser" />
+          <NavigationProperty Name="User" Relationship="Self.FK_tblQuizPassScore_tblUser" FromRole="tblQuizPassScore" ToRole="tblUser" />
         </EntityType>
         <EntityType Name="QuizQuestion">
           <Key>
@@ -763,10 +763,10 @@
           <Property Name="QuizVariantId" Type="Int32" />
           <Property Name="QuestionScore" Type="Byte" Nullable="false" />
           <Property Name="QuestionOrder" Type="Int16" />
-          <NavigationProperty Name="tblQuizBlock" Relationship="Self.FK_tblQuizQuestion_tblQuizBlock" FromRole="tblQuizQuestion" ToRole="tblQuizBlock" />
+          <NavigationProperty Name="QuizBlock" Relationship="Self.FK_tblQuizQuestion_tblQuizBlock" FromRole="tblQuizQuestion" ToRole="tblQuizBlock" />
           <Property Name="QuestionId" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="tblQuestion" Relationship="eQuizModel.FK_tblQuizQuestion_tblQuestion" FromRole="tblQuizQuestion" ToRole="tblQuestion" />
-          <NavigationProperty Name="tblQuizVariant" Relationship="eQuizModel.FK_tblQuizQuestion_tblQuizVariant" FromRole="tblQuizQuestion" ToRole="tblQuizVariant" />
+          <NavigationProperty Name="Question" Relationship="eQuizModel.FK_tblQuizQuestion_tblQuestion" FromRole="tblQuizQuestion" ToRole="tblQuestion" />
+          <NavigationProperty Name="QuizVariant" Relationship="eQuizModel.FK_tblQuizQuestion_tblQuizVariant" FromRole="tblQuizQuestion" ToRole="tblQuizVariant" />
         </EntityType>
         <EntityType Name="QuizType">
           <Key>
@@ -774,7 +774,7 @@
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="TypeName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="tblQuizs" Relationship="Self.FK_tblQuiz_tblQuizType" FromRole="tblQuizType" ToRole="tblQuiz" />
+          <NavigationProperty Name="Quizs" Relationship="Self.FK_tblQuiz_tblQuizType" FromRole="tblQuizType" ToRole="tblQuiz" />
         </EntityType>
         <EntityType Name="QuizVariant">
           <Key>
@@ -783,7 +783,7 @@
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="QuizId" Type="Int32" Nullable="false" />
           <Property Name="VariantNumber" Type="Byte" Nullable="false" />
-          <NavigationProperty Name="tblQuizQuestions" Relationship="eQuizModel.FK_tblQuizQuestion_tblQuizVariant" FromRole="tblQuizVariant" ToRole="tblQuizQuestion" />
+          <NavigationProperty Name="QuizQuestions" Relationship="eQuizModel.FK_tblQuizQuestion_tblQuizVariant" FromRole="tblQuizVariant" ToRole="tblQuizQuestion" />
         </EntityType>
         <EntityType Name="Tag">
           <Key>
@@ -791,7 +791,7 @@
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="tblQuestionTags" Relationship="Self.FK_tblQuestionTag_tblTag" FromRole="tblTag" ToRole="tblQuestionTag" />
+          <NavigationProperty Name="QuestionTags" Relationship="Self.FK_tblQuestionTag_tblTag" FromRole="tblTag" ToRole="tblQuestionTag" />
         </EntityType>
         <EntityType Name="Topic">
           <Key>
@@ -800,8 +800,8 @@
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Description" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="tblQuestions" Relationship="Self.FK_tblQuestion_tblTopic" FromRole="tblTopic" ToRole="tblQuestion" />
-          <NavigationProperty Name="tblQuizBlocks" Relationship="Self.FK_tblQuizBlock_Topic" FromRole="tblTopic" ToRole="tblQuizBlock" />
+          <NavigationProperty Name="Questions" Relationship="Self.FK_tblQuestion_tblTopic" FromRole="tblTopic" ToRole="tblQuestion" />
+          <NavigationProperty Name="QuizBlocks" Relationship="Self.FK_tblQuizBlock_Topic" FromRole="tblTopic" ToRole="tblQuizBlock" />
         </EntityType>
         <EntityType Name="User">
           <Key>
@@ -816,11 +816,11 @@
           <Property Name="IsEmailConfirmed" Type="Boolean" Nullable="false" />
           <Property Name="PasswordHash" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="SecurityStamp" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="tblFacebookUsers" Relationship="Self.FK_tblFacebookUser_tblUser" FromRole="tblUser" ToRole="tblFacebookUser" />
-          <NavigationProperty Name="tblQuizPasses" Relationship="Self.FK_tblQuizPass_tblUser" FromRole="tblUser" ToRole="tblQuizPass" />
-          <NavigationProperty Name="tblQuizPassScores" Relationship="Self.FK_tblQuizPassScore_tblUser" FromRole="tblUser" ToRole="tblQuizPassScore" />
-          <NavigationProperty Name="tblUserAnswerScores" Relationship="Self.FK_tblUserAnswerScore_tblUser" FromRole="tblUser" ToRole="tblUserAnswerScore" />
-          <NavigationProperty Name="tblUserToUserGroups" Relationship="Self.FK_tblUserToUserGroup_tblUser" FromRole="tblUser" ToRole="tblUserToUserGroup" />
+          <NavigationProperty Name="FacebookUsers" Relationship="Self.FK_tblFacebookUser_tblUser" FromRole="tblUser" ToRole="tblFacebookUser" />
+          <NavigationProperty Name="QuizPasses" Relationship="Self.FK_tblQuizPass_tblUser" FromRole="tblUser" ToRole="tblQuizPass" />
+          <NavigationProperty Name="QuizPassScores" Relationship="Self.FK_tblQuizPassScore_tblUser" FromRole="tblUser" ToRole="tblQuizPassScore" />
+          <NavigationProperty Name="UserAnswerScores" Relationship="Self.FK_tblUserAnswerScore_tblUser" FromRole="tblUser" ToRole="tblUserAnswerScore" />
+          <NavigationProperty Name="UserToUserGroups" Relationship="Self.FK_tblUserToUserGroup_tblUser" FromRole="tblUser" ToRole="tblUserToUserGroup" />
         </EntityType>
         <EntityType Name="UserAnswer">
           <Key>
@@ -830,8 +830,8 @@
           <Property Name="QuizPassQuestionId" Type="Int32" Nullable="false" />
           <Property Name="AnswerId" Type="Int32" Nullable="false" />
           <Property Name="AnswerTime" Type="DateTime" Nullable="false" Precision="3" />
-          <NavigationProperty Name="tblQuestionAnswer" Relationship="Self.FK_tblUserAnswer_tblQuestionAnswer" FromRole="tblUserAnswer" ToRole="tblQuestionAnswer" />
-          <NavigationProperty Name="tblQuizPassQuestion" Relationship="Self.FK_tblUserAnswer_tblQuizPassQuestion" FromRole="tblUserAnswer" ToRole="tblQuizPassQuestion" />
+          <NavigationProperty Name="QuestionAnswer" Relationship="Self.FK_tblUserAnswer_tblQuestionAnswer" FromRole="tblUserAnswer" ToRole="tblQuestionAnswer" />
+          <NavigationProperty Name="QuizPassQuestion" Relationship="Self.FK_tblUserAnswer_tblQuizPassQuestion" FromRole="tblUserAnswer" ToRole="tblQuizPassQuestion" />
         </EntityType>
         <EntityType Name="UserAnswerScore">
           <Key>
@@ -841,7 +841,7 @@
           <Property Name="Score" Type="Byte" Nullable="false" />
           <Property Name="EvaluatedBy" Type="Int32" Nullable="false" />
           <Property Name="EvaluatedAt" Type="DateTime" Nullable="false" Precision="0" />
-          <NavigationProperty Name="tblUser" Relationship="Self.FK_tblUserAnswerScore_tblUser" FromRole="tblUserAnswerScore" ToRole="tblUser" />
+          <NavigationProperty Name="User" Relationship="Self.FK_tblUserAnswerScore_tblUser" FromRole="tblUserAnswerScore" ToRole="tblUser" />
         </EntityType>
         <EntityType Name="UserGroup">
           <Key>
@@ -849,8 +849,8 @@
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="tblQuizs" Relationship="Self.FK_tblQuiz_tblGroup" FromRole="tblUserGroup" ToRole="tblQuiz" />
-          <NavigationProperty Name="tblUserToUserGroups" Relationship="Self.FK_tblUserToUserGroup_tblUserGroup" FromRole="tblUserGroup" ToRole="tblUserToUserGroup" />
+          <NavigationProperty Name="Quizs" Relationship="Self.FK_tblQuiz_tblGroup" FromRole="tblUserGroup" ToRole="tblQuiz" />
+          <NavigationProperty Name="UserToUserGroups" Relationship="Self.FK_tblUserToUserGroup_tblUserGroup" FromRole="tblUserGroup" ToRole="tblUserToUserGroup" />
         </EntityType>
         <EntityType Name="UserToUserGroup">
           <Key>
@@ -859,8 +859,8 @@
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="UserId" Type="Int32" Nullable="false" />
           <Property Name="GroupId" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="tblUser" Relationship="Self.FK_tblUserToUserGroup_tblUser" FromRole="tblUserToUserGroup" ToRole="tblUser" />
-          <NavigationProperty Name="tblUserGroup" Relationship="Self.FK_tblUserToUserGroup_tblUserGroup" FromRole="tblUserToUserGroup" ToRole="tblUserGroup" />
+          <NavigationProperty Name="User" Relationship="Self.FK_tblUserToUserGroup_tblUser" FromRole="tblUserToUserGroup" ToRole="tblUser" />
+          <NavigationProperty Name="UserGroup" Relationship="Self.FK_tblUserToUserGroup_tblUserGroup" FromRole="tblUserToUserGroup" ToRole="tblUserGroup" />
         </EntityType>
         <Association Name="FK_tblFacebookUser_tblUser">
           <End Role="tblUser" Type="eQuizModel.User" Multiplicity="1" />

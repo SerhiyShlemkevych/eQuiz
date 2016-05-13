@@ -17,11 +17,11 @@ namespace eQuiz.Entities
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public User()
         {
-            this.tblFacebookUsers = new HashSet<FacebookUser>();
-            this.tblQuizPasses = new HashSet<QuizPass>();
-            this.tblQuizPassScores = new HashSet<QuizPassScore>();
-            this.tblUserAnswerScores = new HashSet<UserAnswerScore>();
-            this.tblUserToUserGroups = new HashSet<UserToUserGroup>();
+            this.FacebookUsers = new HashSet<FacebookUser>();
+            this.QuizPasses = new HashSet<QuizPass>();
+            this.QuizPassScores = new HashSet<QuizPassScore>();
+            this.UserAnswerScores = new HashSet<UserAnswerScore>();
+            this.UserToUserGroups = new HashSet<UserToUserGroup>();
         }
     
         public int Id { get; set; }
@@ -35,14 +35,14 @@ namespace eQuiz.Entities
         public string SecurityStamp { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<FacebookUser> tblFacebookUsers { get; set; }
+        public virtual ICollection<FacebookUser> FacebookUsers { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<QuizPass> tblQuizPasses { get; set; }
+        public virtual ICollection<QuizPass> QuizPasses { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<QuizPassScore> tblQuizPassScores { get; set; }
+        public virtual ICollection<QuizPassScore> QuizPassScores { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<UserAnswerScore> tblUserAnswerScores { get; set; }
+        public virtual ICollection<UserAnswerScore> UserAnswerScores { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<UserToUserGroup> tblUserToUserGroups { get; set; }
+        public virtual ICollection<UserToUserGroup> UserToUserGroups { get; set; }
     }
 }

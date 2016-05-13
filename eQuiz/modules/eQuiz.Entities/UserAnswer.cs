@@ -19,7 +19,7 @@ namespace eQuiz.Entities
         public int AnswerId { get; set; }
         public System.DateTime AnswerTime { get; set; }
     
-        public virtual QuestionAnswer tblQuestionAnswer { get; set; }
-        public virtual QuizPassQuestion tblQuizPassQuestion { get; set; }
+        public virtual QuestionAnswer QuestionAnswer { get; set; }
+        public virtual QuizPassQuestion QuizPassQuestion { get; set; }
     }
 }

@@ -69,8 +69,7 @@ CREATE TABLE [dbo].[tblQuizBlock]
 	[QuestionMaxComplexity] [TINYINT] NULL,
 	[QuestionCount] [TINYINT] NULL,
 	CONSTRAINT [PK_tblQuizBlock_Id] PRIMARY KEY ([Id]), 
-	CONSTRAINT [UK_tblQuizBlock_QuizId] UNIQUE ([QuizId]),
-	CONSTRAINT [UK_tblQuizBlock_TopicId] UNIQUE ([TopicId])
+	CONSTRAINT [UK_tblQuizBlock_QuizId_TopicId] UNIQUE ([QuizId], [TopicId])
 );
 
 CREATE TABLE [dbo].[tblQuiz]
@@ -96,9 +95,7 @@ CREATE TABLE [dbo].[tblQuizPass]
 	[StartTime] [SMALLDATETIME] NOT NULL,
 	[FinishTime] [SMALLDATETIME] NULL,
 	CONSTRAINT [PK_tblQuizPass_Id] PRIMARY KEY ([Id]),
-	CONSTRAINT [UK_tblQuizPass_QuizId] UNIQUE ([QuizId]), 
-	CONSTRAINT [UK_tblQuizPass_UserId] UNIQUE ([UserId]), 
-	CONSTRAINT [UK_tblQuizPass_StartTime] UNIQUE ([StartTime])
+	CONSTRAINT [UK_tblQuizPass_QuizId_UserId_StartTime] UNIQUE ([QuizId], [UserId], [StartTime])
 );
 
 CREATE TABLE [dbo].[tblQuizPassQuestion]
@@ -109,8 +106,7 @@ CREATE TABLE [dbo].[tblQuizPassQuestion]
 	[QuizBlockId] [INT] NOT NULL,
 	[QuestionOrder] [SMALLINT] NOT NULL,
 	CONSTRAINT [PK_tblQuizPassQuestion_Id] PRIMARY KEY ([Id]), 
-	CONSTRAINT [UK_tblQuizPassQuestion_QPId] UNIQUE ([QuizPassId]),
-	CONSTRAINT [UK_tblQuizPassQuestion_QuestionId] UNIQUE ([QuestionId])
+	CONSTRAINT [UK_tblQuizPassQuestion_QuizPassId_QuestionId] UNIQUE ([QuizPassId], [QuestionId])
 ); 
 
 CREATE TABLE [dbo].[tblQuizPassScore]
@@ -146,8 +142,7 @@ CREATE TABLE [dbo].[tblQuizVariant]
 	[QuizId] [INT] NOT NULL,
 	[VariantNumber] [TINYINT] NOT NULL,
 	CONSTRAINT [PK_tblQuizVariant_Id] PRIMARY KEY ([Id]),
-	CONSTRAINT [UK_tblQuizVariant_QuizId] UNIQUE ([QuizId]),
-	CONSTRAINT [UK_tblQuizVariant_VariantNumber] UNIQUE ([VariantNumber])
+	CONSTRAINT [UK_tblQuizVariant_QuizId_VariantNumber] UNIQUE ([QuizId], [VariantNumber])
 );
 
 CREATE TABLE [dbo].[tblTag]

@@ -100,7 +100,6 @@
     <Content Include="Areas\Admin\Scripts\review\review.controller.js" />
     <Content Include="Areas\Admin\Scripts\review\review-data.service.js" />
     <Content Include="Areas\Admin\Scripts\review\start-from.filter.js" />
-    <Content Include="Areas\Admin\Scripts\shared\equiz.module.js" />
     <Content Include="Areas\Admin\Scripts\shared\popUp.js" />
     <Content Include="Areas\Admin\Scripts\student\student.controller.js" />
     <Content Include="Areas\Admin\Scripts\student\student-data.service.js" />
@@ -120,7 +119,6 @@
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
-    <Compile Include="Areas\Admin\Controllers\old_DefaultController.cs" />
     <Compile Include="Areas\Admin\Controllers\DefaultController.cs" />
     <Compile Include="Areas\Moderator\Controllers\DefaultController.cs" />
     <Compile Include="Areas\Moderator\ModeratorAreaRegistration.cs" />

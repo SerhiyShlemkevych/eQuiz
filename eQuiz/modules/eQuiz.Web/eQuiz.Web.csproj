@@ -131,6 +131,7 @@
     <Content Include="Areas\Student\Views\Default\Dashboard.cshtml" />
     <Content Include="Areas\Student\Views\Default\Details.cshtml" />
     <Content Include="Areas\Student\Views\Account\Login.cshtml" />
+    <Content Include="connections.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

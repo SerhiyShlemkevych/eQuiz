@@ -38,10 +38,10 @@
         }
 		        ];
 		vm.myPredicate = null;
-		vm.newComment = {};
+		vm.newComment = {}; // Represents a new comment
 		vm.currentTab = 'Profile';
-		vm.newCommentFrame = false;
-		vm.modelChanged = false;
+		vm.newCommentFrame = false; // Indicates whether new comment tab is shown
+		vm.modelChanged = false; // Indicates whether data in the model was changed
 
 		var orderBy = $filter('orderBy');
 		vm.resultsCount = [10, 25, 50, 100];
@@ -156,7 +156,7 @@
 		    });
 
 		    return passed + '/' + inVerification + '/' + notPassed;
-		};
+		}; 
 
 		vm.saveProfile = function () {
 		    studentDataService.saveProfileInfo(vm.studentInfo, vm.studentComments);
@@ -168,7 +168,7 @@
 		vm.cancelProfile = function() {
 		    activate();
 		    vm.modelChanged = false;
-		};
+		}; // Cancel unsaved changes in the profile
 
 		vm.toggleNewCommentFrame = function () {
 		    vm.newCommentFrame = !vm.newCommentFrame;
@@ -185,7 +185,7 @@
 
 		vm.validationCheck = function () {
 		    return $scope.profileInfo.firstName.$valid && $scope.profileInfo.lastName.$valid && $scope.profileInfo.phone.$valid && vm.modelChanged;
-		};
+		}; // Checks
 
 		vm.setQuiz = function (quiz) {
 		    sharedProperties.selectedQuiz = quiz;
@@ -199,6 +199,6 @@
                         parseInt(parts[1]),
                         parseInt(parts[0]));
 		    }, true);
-		};
+		}; // Sort specified array by date in descending order
 	};
 })(angular);

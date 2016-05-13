@@ -5,7 +5,7 @@
     <input type="text" ng-model="rc.search" style="width:15em">
 
     <div style="overflow-x:auto;">
-        <table class="reviewTable">
+    <table class="reviewTable">
             <thead>
                 <tr>
                     <th ng-repeat="h in rc.headers">
@@ -35,7 +35,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr ng-repeat="c in rc.contents = ((rc.searchFiltered = (rc.content | groupFilter:rc.selectedGroup | filter: {student:rc.search})) | startFrom: rc.tablePage*rc.resultsPerPage | limitTo:rc.resultsPerPage)" style="height: 50px">
+                <tr ng-repeat="c in rc.contents = ((rc.searchFiltered = (rc.students | groupFilter:rc.selectedGroup | filter: {student:rc.search})) | startFrom: rc.tablePage*rc.resultsPerPage | limitTo:rc.resultsPerPage)" style="height: 50px">
                     <td><a class="link" ng-click="rc.setStudent(c.student); lc.GoToStudent()" ng-bind-html="c.student | highlight: rc.search">{{c.student}}</a></td>
                     <td>{{c.userGroup}}</td>
                     <td>{{c.quizzes}}</td>                    

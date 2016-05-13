@@ -137,16 +137,16 @@ div.confirm_btns_section {
     margin: 10px;    
 }
 
-button.btn-good:hover {
+button.btn-lightgreen-hover:hover {
     background: lightgreen;   
     color: black;
 }
 
-button.btn-neutral:hover {
+button.btn-lightgrey-hover:hover {
     background: lightgrey;    
     color: black;
 }
-button.btn-bad:hover {
+button.btn-lightcoral-hover:hover {
     background: lightcoral;      
     color: black;
 }
@@ -156,16 +156,16 @@ button.btn-standart {
     color: black;
 }
 
-/*button.btn-good {
+button.btn-lightgreen {
     background: lightgreen;    
 }
 
-button.btn_neutral {
+button.btn-lightgrey {
     background: lightgrey;    
 }
-button.btn-bad {
+button.btn-lightcoral {
     background: lightcoral;      
-}*/
+}
 
 .btn_spacing {
     margin: 0px 5px 0px 5px;

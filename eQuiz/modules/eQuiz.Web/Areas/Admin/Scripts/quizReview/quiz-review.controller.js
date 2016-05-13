@@ -1,6 +1,8 @@
 ﻿(function (angular) {
-    angular.module("equizModule")
-           .controller('quizReviewController', quizReviewController);
+    angular
+        .module("equizModule")
+        .controller('quizReviewController', quizReviewController);
+
     quizReviewController.$inject = ['$scope', 'quizReviewDataService'];
 
     function quizReviewController($scope, quizReviewDataService) {
@@ -9,7 +11,7 @@
         vm.notPassed = 0;
         vm.inVerification = 0;
 
-        vm.CountStats = function () {
+        vm.countStats = function () {
             vm.passed = 0;
             vm.notPassed = 0;
             vm.inVerification = 0;
@@ -32,19 +34,45 @@
             vm.group = quizReviewDataService.getGroup();
             vm.quiz = quizReviewDataService.getQuiz();
 
-            vm.CountStats();
+            vm.countStats();
         };
 
         activate();
 
-        vm.SetQuestionStatus = function (id, status) {            
+        vm.setQuestionStatus = function (id, status) {        
             for (var i = 0; i < vm.quiz.questions.length; i++){            
                 if (vm.quiz.questions[i].question_id === id) {                    
                     vm.quiz.questions[i].questionStatus = status;
                 }
             }
             
-            vm.CountStats();           
+            vm.countStats();           
+        }
+
+        vm.addAttriChecked = function (questionId, aswerId) {    //add attribute 'checked' to checkboxes if finds proper user answer     
+            for (var i = 0; i < vm.quiz.questions.length; i++) {
+                if (vm.quiz.questions[i].question_id == questionId) {
+                    for (var j = 0; j < vm.quiz.questions[i].userAnswer.length; j++) {
+                        if (vm.quiz.questions[i].userAnswer[j] == aswerId) {                            
+                            return true;
+                        }
+                    }
+                }
+            }            
+        }
+
+        vm.setButtonColor = function (questionStatus, expectedStatus) { // sets button color
+            if (questionStatus == expectedStatus) {
+                return true;
+            }
+        }
+
+        vm.cancelQuizReview = function () {
+            activate();
+        }
+
+        vm.saveQuizReview = function () {
+            quizReviewDataService.saveQuizReview(vm.quiz);
         }
     };
 })(angular);

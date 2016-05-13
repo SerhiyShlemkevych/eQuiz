@@ -25,7 +25,7 @@
         };
 
         function GoToQuiz() {
-            $http.get('/Areas/Admin/Scripts/quizReview.html')
+            $http.get('/Areas/Admin/Scripts/quiz-review.html')
             .then(function (response) {
                 vm.review = $sce.trustAsHtml(response.data);
             });

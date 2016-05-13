@@ -31,8 +31,8 @@ CREATE TABLE [dbo].[tblQuestionAnswer]
 CREATE TABLE [dbo].[tblQuestion]
 (
 	[Id] [INT] NOT NULL IDENTITY(1, 1),
-	[QuestionTypeId] [TINYINT] NOT NULL,
-	[TopicId] [SMALLINT] NOT NULL,
+	[QuestionTypeId] [INT] NOT NULL,
+	[TopicId] [INT] NOT NULL,
 	[QuestionText] [NVARCHAR](max) NOT NULL,
 	[QuestionComplexity] [TINYINT] NOT NULL,
 	[IsActive] [BIT] NOT NULL,
@@ -41,14 +41,16 @@ CREATE TABLE [dbo].[tblQuestion]
 
 CREATE TABLE [dbo].[tblQuestionTag]
 (
+	[Id] [INT] NOT NULL IDENTITY(1, 1),
 	[QuestionId] [INT] NOT NULL,
-	[TagId] [SMALLINT] NOT NULL,
-	CONSTRAINT [PK_tblQuestionTag_QuestionId_TagId] PRIMARY KEY ([QuestionId], [TagId]) 
+	[TagId] [INT] NOT NULL,
+	CONSTRAINT [PK_tblQuestionTag_Id] PRIMARY KEY ([Id]),
+	CONSTRAINT [UK_tblQuestionTag_QuestionId_TagId] UNIQUE ([QuestionId], [TagId]) 
 );
 
 CREATE TABLE [dbo].[tblQuestionType]
 (
-	[Id] [TINYINT] NOT NULL IDENTITY(1, 1),
+	[Id] [INT] NOT NULL IDENTITY(1, 1),
 	[TypeName] [VARCHAR](20) NOT NULL,
 	[IsAutomatic] [BIT] NOT NULL,
 	CONSTRAINT [PK_tblQuestionType_Id] PRIMARY KEY ([Id]), 
@@ -59,7 +61,7 @@ CREATE TABLE [dbo].[tblQuizBlock]
 (
 	[Id] [INT] NOT NULL IDENTITY(1, 1),
 	[QuizId] [INT] NOT NULL,
-	[TopicId] [SMALLINT] NOT NULL,
+	[TopicId] [INT] NOT NULL,
 	[BlockOrder] [TINYINT] NULL,
 	[IsRandom] [BIT] NOT NULL,
 	[QuestionMinComplexity] [TINYINT] NULL,
@@ -73,14 +75,14 @@ CREATE TABLE [dbo].[tblQuizBlock]
 CREATE TABLE [dbo].[tblQuiz]
 (
 	[Id] [INT] NOT NULL IDENTITY(1, 1),
-	[QuizTypeId] [TINYINT] NOT NULL,
+	[QuizTypeId] [INT] NOT NULL,
 	[Name] [NVARCHAR](50) NOT NULL,
 	[Description] [NVARCHAR](MAX) NULL,
 	[StartDate] [SMALLDATETIME] NULL,
 	[EndDate] [SMALLDATETIME] NULL,
 	[TimeLimitMinutes] [SMALLINT] NULL,
 	[InternetAccess] [BIT] NOT NULL,
-	[GroupId] [SMALLINT] NOT NULL,
+	[GroupId] [INT] NOT NULL,
 	CONSTRAINT [PK_tblQuiz_Id] PRIMARY KEY ([Id]),
 	CONSTRAINT [UK_tblQuiz_Name] UNIQUE ([Name])
  ); 
@@ -131,7 +133,7 @@ CREATE TABLE [dbo].[tblQuizQuestion]
 
 CREATE TABLE [dbo].[tblQuizType]
 (
-	[Id] [TINYINT] NOT NULL IDENTITY(1, 1),
+	[Id] [INT] NOT NULL IDENTITY(1, 1),
 	[TypeName] [VARCHAR](50) NOT NULL,
 	CONSTRAINT [PK_tblQuizType_Id] PRIMARY KEY ([Id]) 
 );
@@ -148,7 +150,7 @@ CREATE TABLE [dbo].[tblQuizVariant]
 
 CREATE TABLE [dbo].[tblTag]
 (
-	[Id] [SMALLINT] NOT NULL IDENTITY(1, 1),
+	[Id] [INT] NOT NULL IDENTITY(1, 1),
 	[Name] [NVARCHAR](20) NOT NULL,
 	CONSTRAINT [PK_tblTag_Id] PRIMARY KEY ([Id]),
 	CONSTRAINT [UK_tblTag_Name] UNIQUE ([Name])
@@ -156,7 +158,7 @@ CREATE TABLE [dbo].[tblTag]
 
 CREATE TABLE [dbo].[tblTopic]
 (
-	[Id] [SMALLINT] NOT NULL IDENTITY(1, 1),
+	[Id] [INT] NOT NULL IDENTITY(1, 1),
 	[Name] [NVARCHAR](30) NOT NULL,
 	[Description] [NVARCHAR](250) NULL,
 	CONSTRAINT [PK_tblTopic_Id] PRIMARY KEY ([Id]), 
@@ -165,10 +167,12 @@ CREATE TABLE [dbo].[tblTopic]
 
 CREATE TABLE [dbo].[tblUserAnswer]
 (
+	[Id] [INT] NOT NULL IDENTITY(1, 1),
 	[QuizPassQuestionId] [INT] NOT NULL,
 	[AnswerId] [INT] NOT NULL,
 	[AnswerTime] [DATETIME] NOT NULL,
-	CONSTRAINT [PK_tblUserAnswer] PRIMARY KEY ([QuizPassQuestionId], [AnswerId]) 
+	CONSTRAINT [PK_tblUserAnswer_Id] PRIMARY KEY ([Id]),
+	CONSTRAINT [UK_tblUserAnswer_QuizPassQuestionId_AnswerId] UNIQUE ([QuizPassQuestionId], [AnswerId]) 
 );
 
 CREATE TABLE [dbo].[tblUserAnswerScore]
@@ -182,7 +186,7 @@ CREATE TABLE [dbo].[tblUserAnswerScore]
 
 CREATE TABLE [dbo].[tblUserGroup]
 (
-	[Id] [SMALLINT] NOT NULL IDENTITY(1, 1),
+	[Id] [INT] NOT NULL IDENTITY(1, 1),
 	[Name] [NVARCHAR](50) NOT NULL,
 	CONSTRAINT [PK_tblUserGroup_Id] PRIMARY KEY ([Id]), 
 	CONSTRAINT [UK_tblUserGroups_Name] UNIQUE ([Name]) 
@@ -205,9 +209,11 @@ CREATE TABLE [dbo].[tblUser]
 
 CREATE TABLE [dbo].[tblUserToUserGroup]
 (
+	[Id] [INT] NOT NULL IDENTITY(1, 1),
 	[UserId] [INT] NOT NULL,
-	[GroupId] [SMALLINT] NOT NULL,
-	CONSTRAINT [PK_UserToUserGroup] PRIMARY KEY ([UserId], [GroupId]) 
+	[GroupId] [INT] NOT NULL,
+	CONSTRAINT [PK_tblUserToUserGroup_Id] PRIMARY KEY ([Id]), 
+	CONSTRAINT [UK_UserToUserGroup_UserId_GroupId] UNIQUE ([UserId], [GroupId]) 
 );
 
 CREATE TABLE [dbo].[UserTextAnswer]
@@ -224,7 +230,7 @@ ALTER TABLE [dbo].[tblFacebookUser] ADD CONSTRAINT [FK_tblFacebookUser_tblUser] 
 
 ALTER TABLE [dbo].[tblQuestionAnswer] ADD CONSTRAINT [FK_tblQuestionAnswer_tblQuestion] FOREIGN KEY([QuestionId]) REFERENCES [dbo].[tblQuestion] ([Id]);
 
-ALTER TABLE [dbo].[tblQuestion] ADD CONSTRAINT [FK_tblQuestion_tblQuestionType] FOREIGN KEY([QuestionTypeId]) REFERENCES [dbo].[tblQuestionType] ([Id])
+ALTER TABLE [dbo].[tblQuestion] ADD CONSTRAINT [FK_tblQuestion_tblQuestionType] FOREIGN KEY([QuestionTypeId]) REFERENCES [dbo].[tblQuestionType] ([Id]);
 
 ALTER TABLE [dbo].[tblQuestion] ADD CONSTRAINT [FK_tblQuestion_tblTopic] FOREIGN KEY([TopicId]) REFERENCES [dbo].[tblTopic] ([Id]);
 

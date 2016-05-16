@@ -35,6 +35,9 @@ CREATE TABLE [dbo].[tblQuestionAnswer]
 	[Id] [INT] NOT NULL IDENTITY(1, 1),
 	[QuestionId] [INT] NOT NULL,
 	[AnswerId] [INT] NOT NULL,
+	[AnswerText] [NVARCHAR](MAX) NOT NULL,
+	[AnswerOrder] [TINYINT] NULL,
+	[IsRight] [BIT] NULL,
 	CONSTRAINT [PK_tblQuestionAnswer_Id] PRIMARY KEY ([Id])
 );
 

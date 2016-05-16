@@ -93,7 +93,8 @@ CREATE TABLE [dbo].[tblQuiz]
 	[InternetAccess] [BIT] NOT NULL,
 	[GroupId] [INT] NOT NULL,
 	CONSTRAINT [PK_tblQuiz_Id] PRIMARY KEY ([Id]),
-	CONSTRAINT [UK_tblQuiz_Name] UNIQUE ([Name])
+	CONSTRAINT [UK_tblQuiz_Name] UNIQUE ([Name]),
+	CONSTRAINT [CK_tblQuiz_StartDate_EndDate] CHECK ([StartDate] <= [EndDate])
  ); 
 
 CREATE TABLE [dbo].[tblQuizPass]

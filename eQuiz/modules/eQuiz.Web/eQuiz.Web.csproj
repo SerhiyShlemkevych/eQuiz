@@ -89,7 +89,24 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Areas\Admin\Scripts\compile.directive.js" />
+    <Content Include="Areas\Admin\Scripts\layout.controller.js" />
+    <Content Include="Areas\Admin\Scripts\quiz-review.html" />
+    <Content Include="Areas\Admin\Scripts\quizReview\quiz-review-data.service.js" />
+    <Content Include="Areas\Admin\Scripts\quizReview\quiz-review.controller.js" />
+    <Content Include="Areas\Admin\Scripts\shared-values.service.js" />
+    <Content Include="Areas\Admin\Scripts\review\group.filter.js" />
+    <Content Include="Areas\Admin\Scripts\review\highlight.filter.js" />
+    <Content Include="Areas\Admin\Scripts\review\review.controller.js" />
+    <Content Include="Areas\Admin\Scripts\review\review-data.service.js" />
+    <Content Include="Areas\Admin\Scripts\review\start-from.filter.js" />
+    <Content Include="Areas\Admin\Scripts\shared\popUp.js" />
+    <Content Include="Areas\Admin\Scripts\student\student.controller.js" />
+    <Content Include="Areas\Admin\Scripts\student\student-data.service.js" />
+    <Content Include="Areas\Admin\Scripts\student.html" />
+    <Content Include="Areas\Admin\Styles\bootstrap-combined.css" />
     <Content Include="Areas\Admin\Styles\equiz-temp.css" />
+    <Content Include="Areas\Admin\Scripts\review.html" />
     <Content Include="Areas\Moderator\Styles\equiz-temp.css" />
     <Content Include="Areas\Student\Styles\equiz-temp.css" />
     <Content Include="Global.asax" />
@@ -124,7 +141,6 @@
     <Content Include="Areas\Moderator\Views\web.config" />
     <Content Include="Areas\Admin\Views\web.config" />
     <Content Include="Areas\Student\Views\web.config" />
-    <Content Include="Areas\Admin\Views\Default\Index.cshtml" />
     <Content Include="Areas\Moderator\Views\Default\Index.cshtml" />
     <Content Include="Areas\Student\Views\Default\Index.cshtml" />
     <Content Include="Views\Home\MainLogin.cshtml" />
@@ -132,6 +148,7 @@
     <Content Include="Areas\Student\Views\Default\Details.cshtml" />
     <Content Include="Areas\Student\Views\Account\Login.cshtml" />
     <Content Include="connections.config" />
+    <Content Include="Areas\Admin\Views\Default\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -142,7 +159,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Models\" />
-    <Folder Include="Areas\Admin\Scripts\" />
     <Folder Include="Areas\Admin\Views\Shared\" />
     <Folder Include="Areas\Moderator\Models\" />
     <Folder Include="Areas\Moderator\Scripts\" />

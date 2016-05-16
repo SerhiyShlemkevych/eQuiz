@@ -1,7 +1,7 @@
 ﻿(function (angular) {
     angular
         .module("equizModule")
-        .controller('quizReviewController', quizReviewController);
+        .controller('QuizReviewController', quizReviewController);
 
     quizReviewController.$inject = ['$scope', 'quizReviewDataService'];
 

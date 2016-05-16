@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Web.Mvc;
-using AdminDefaultController = eQuiz.Web.Areas.Admin.Controllers.old_DefaultController;
+using AdminDefaultController = eQuiz.Web.Areas.Admin.Controllers.DefaultController;
 
 namespace eQuiz.Web.Tests.Areas.Admin.Controllers
 {

@@ -13,7 +13,7 @@ namespace eQuiz.Web.Areas.Moderator.Controllers
         public ActionResult Get()
         {
             UserGroup[] groups = null;
-            using (eQuizEntities model = new eQuizEntities())
+            using (eQuizEntities model = new eQuizEntities(System.Configuration.ConfigurationManager.ConnectionStrings["eQuizDB"].ConnectionString))
             {
                 groups = model.UserGroups.ToArray();
                 return Json(groups, JsonRequestBehavior.AllowGet);

@@ -66,6 +66,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>eQuizEntities.edmx</DependentUpon>
     </Compile>
+    <Compile Include="eQuizEntitiesPartial.cs" />
     <Compile Include="FacebookUser.cs">
       <DependentUpon>eQuizEntities.tt</DependentUpon>
     </Compile>

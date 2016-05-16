@@ -20,7 +20,7 @@ namespace eQuiz.Web.Areas.Moderator.Controllers
         [HttpGet]
         public ActionResult GetQuestionTypes()
         {
-            using (var context = new eQuizEntities())
+            using (var context = new eQuizEntities(System.Configuration.ConfigurationManager.ConnectionStrings["eQuizDB"].ConnectionString))
             {
                 var typesList = context.QuestionTypes.OrderBy(x => x.TypeName).ToList();
                 return Json(typesList, JsonRequestBehavior.AllowGet);
@@ -35,7 +35,7 @@ namespace eQuiz.Web.Areas.Moderator.Controllers
             {
                 return new HttpStatusCodeResult(System.Net.HttpStatusCode.BadRequest, "Can not save quiz without question.");
             }
-            using (var context = new eQuizEntities())
+            using (var context = new eQuizEntities(System.Configuration.ConfigurationManager.ConnectionStrings["eQuizDB"].ConnectionString))
             {
                 var topicId = context.Topics.First().Id;
                 var quizVariantId = 1; /*context.QuizVariants.First(x => x.QuizId == id).Id;*/ //we don't have fk on tblQuiz
@@ -163,7 +163,7 @@ namespace eQuiz.Web.Areas.Moderator.Controllers
             List<List<QuestionAnswer>> answers = null;
             List<List<Tag>> tags = null;
             int quizId = 0;
-            using (var context = new eQuizEntities())
+            using (var context = new eQuizEntities(System.Configuration.ConfigurationManager.ConnectionStrings["eQuizDB"].ConnectionString))
             {
                 var quiz = context.Quizs.Where(x => x.Id == id).FirstOrDefault();  //check if exists
 

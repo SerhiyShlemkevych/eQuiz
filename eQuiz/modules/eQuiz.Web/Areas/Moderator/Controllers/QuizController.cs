@@ -31,7 +31,7 @@ namespace eQuiz.Web.Areas.Moderator.Controllers
         public ActionResult IsNameUnique(string name)
         {
             Quiz quiz = null;
-            using(eQuizEntities model = new eQuizEntities())
+            using(eQuizEntities model = new eQuizEntities(System.Configuration.ConfigurationManager.ConnectionStrings["eQuizDB"].ConnectionString))
             {
                 quiz = model.Quizs.FirstOrDefault(q => q.Name == name);
             }
@@ -43,7 +43,7 @@ namespace eQuiz.Web.Areas.Moderator.Controllers
         {
             Quiz quiz = null;
             QuizBlock block = null;
-            using (eQuizEntities model = new eQuizEntities())
+            using (eQuizEntities model = new eQuizEntities(System.Configuration.ConfigurationManager.ConnectionStrings["eQuizDB"].ConnectionString))
             {
                 quiz = model.Quizs.Include("UserGroup").FirstOrDefault(q => q.Id == id);
                 block = model.QuizBlocks.FirstOrDefault(b => b.QuizId == id);
@@ -64,7 +64,7 @@ namespace eQuiz.Web.Areas.Moderator.Controllers
             IEnumerable<QuizListModel> quizzesList = null;
             var quizzesTotal = 0;
 
-            using (var context = new eQuizEntities())
+            using (var context = new eQuizEntities(System.Configuration.ConfigurationManager.ConnectionStrings["eQuizDB"].ConnectionString))
             {
                 quizzesList = context.Quizs.Join(context.QuizBlocks,
                     quiz => quiz.Id,
@@ -114,7 +114,7 @@ namespace eQuiz.Web.Areas.Moderator.Controllers
         {
             if (quiz.Id != 0)
             {
-                using (eQuizEntities model = new eQuizEntities())
+                using (eQuizEntities model = new eQuizEntities(System.Configuration.ConfigurationManager.ConnectionStrings["eQuizDB"].ConnectionString))
                 {
                     var updateQuiz = model.Quizs.FirstOrDefault(q => q.Id == quiz.Id);
                     if (updateQuiz == null)
@@ -148,7 +148,7 @@ namespace eQuiz.Web.Areas.Moderator.Controllers
                 block.TopicId = 1;
                 block.Quiz = quiz;
 
-                using (eQuizEntities model = new eQuizEntities())
+                using (eQuizEntities model = new eQuizEntities(System.Configuration.ConfigurationManager.ConnectionStrings["eQuizDB"].ConnectionString))
                 {
                     quiz.UserGroup = model.UserGroups.Where(g => g.Id == quiz.UserGroup.Id).First();
                     model.Quizs.Add(quiz);

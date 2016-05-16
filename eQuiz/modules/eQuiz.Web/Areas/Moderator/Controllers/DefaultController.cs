@@ -13,7 +13,7 @@ namespace eQuiz.Web.Areas.Moderator.Controllers
         [HttpGet]
         public ActionResult Index()
         {
-            using (var db = new eQuizEntities())
+            using (var db = new eQuizEntities(System.Configuration.ConfigurationManager.ConnectionStrings["eQuizDB"].ConnectionString))
             {
                 ViewBag.QuizzesCount = db.Quizs.Count();
                 var today = DateTime.Now;

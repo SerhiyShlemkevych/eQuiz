@@ -63,6 +63,6 @@
     <None Include="insert.sql" />
   </ItemGroup>
   <ItemGroup>
-    <Build Include="create.sql" />
+    <None Include="create.sql" />
   </ItemGroup>
 </Project>

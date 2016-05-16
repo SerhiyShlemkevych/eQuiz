@@ -1,4 +1,4 @@
-﻿CREATE DATABASE [eQuiz];
+CREATE DATABASE [eQuiz];
 
 GO
 
@@ -19,14 +19,23 @@ CREATE TABLE [dbo].[tblFacebookUser]
 	CONSTRAINT [UK_tblFacebookUser_UserName] UNIQUE ([UserName])
 );
 
+--
+CREATE TABLE [dbo].[tblAnswer]
+(
+	[Id] [INT] NOT NULL IDENTITY(1, 1),
+	[AnswerText] [NVARCHAR](MAX) NOT NULL,
+	[AnswerOrder] [TINYINT] NULL,
+	[IsRight] [BIT] NULL,
+	CONSTRAINT [PK_tblAnswer_Id] PRIMARY KEY ([Id]) 
+);
+
+--
 CREATE TABLE [dbo].[tblQuestionAnswer]
 (
 	[Id] [INT] NOT NULL IDENTITY(1, 1),
 	[QuestionId] [INT] NOT NULL,
-	[AnswerText] [NVARCHAR](MAX) NOT NULL,
-	[AnswerOrder] [TINYINT] NULL,
-	[IsRight] [BIT] NULL,
-	CONSTRAINT [PK_tblQuestionAnswer_Id] PRIMARY KEY ([Id]) 
+	[AnswerId] [INT] NOT NULL,
+	CONSTRAINT [PK_tblQuestionAnswer_Id] PRIMARY KEY ([Id])
 );
 
 CREATE TABLE [dbo].[tblQuestion]
@@ -263,9 +272,9 @@ ALTER TABLE [dbo].[tblQuizQuestion] ADD  CONSTRAINT [FK_tblQuizQuestion_tblQuizB
 
 ALTER TABLE [dbo].[tblQuizQuestion] ADD  CONSTRAINT [FK_tblQuizQuestion_tblQuizVariant] FOREIGN KEY([QuizVariantId]) REFERENCES [dbo].[tblQuizVariant] ([Id]);
 
---ALTER TABLE [dbo].[tblQuizVariant] ADD  CONSTRAINT [FK_tblQuizVariant_tblQuiz] FOREIGN KEY([QuizId]) REFERENCES [dbo].[Quiz] ([Id]);
+ALTER TABLE [dbo].[tblQuizVariant] ADD  CONSTRAINT [FK_tblQuizVariant_tblQuiz] FOREIGN KEY([QuizId]) REFERENCES [dbo].[tblQuiz] ([Id]);  ---------
 
-ALTER TABLE [dbo].[tblUserAnswer] ADD  CONSTRAINT [FK_tblUserAnswer_tblQuestionAnswer] FOREIGN KEY([AnswerId]) REFERENCES [dbo].[tblQuestionAnswer] ([Id]);
+ALTER TABLE [dbo].[tblUserAnswer] ADD  CONSTRAINT [FK_tblUserAnswer_tblAnswer] FOREIGN KEY([AnswerId]) REFERENCES [dbo].[tblAnswer] ([Id]); ----------
 
 ALTER TABLE [dbo].[tblUserAnswer] ADD  CONSTRAINT [FK_tblUserAnswer_tblQuizPassQuestion] FOREIGN KEY([QuizPassQuestionId]) REFERENCES [dbo].[tblQuizPassQuestion] ([Id]);
 
@@ -278,5 +287,7 @@ ALTER TABLE [dbo].[tblUserToUserGroup] ADD  CONSTRAINT [FK_tblUserToUserGroup_tb
 ALTER TABLE [dbo].[tblUserToUserGroup] ADD  CONSTRAINT [FK_tblUserToUserGroup_tblUser] FOREIGN KEY([UserId]) REFERENCES [dbo].[tblUser] ([Id]);
 
 --ALTER TABLE [dbo].[tblUserTextAnswer] ADD  CONSTRAINT [FK_tblUserTextAnswer_tblQuizPassQuestion] FOREIGN KEY([QuizPassQuestionId]) REFERENCES [dbo].[tblQuizPassQuestion] ([Id]);
+
+ALTER TABLE [dbo].[tblQuestionAnswer] ADD  CONSTRAINT [FK_tblQuestionAnswer_tblAnswer] FOREIGN KEY([AnswerId]) REFERENCES [dbo].[tblAnswer] ([Id]); ---------------
 
 GO

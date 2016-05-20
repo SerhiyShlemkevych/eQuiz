@@ -4,9 +4,11 @@
     Layout = "~/Views/Shared/Layout.cshtml";
 }
 
-@section BaseUrl{
-    <base href="/moderator/quiz/create/">
+@section HeadStyles{
+<link href="~/Areas/Moderator/Styles/bootstrap.css" rel="stylesheet" />
+<link href="~/Areas/Moderator/Styles/equiz-temp.css" rel="stylesheet" />
 }
+
 
 <div ng-app="quizModule" id="container">
     <div ng-controller="QuizController as vm">
@@ -31,6 +33,7 @@
 
 @section FootScripts{
     <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-messages.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-route.js"></script>
     <script src="~/Areas/Moderator/Scripts/app/pages/quiz/quiz.module.js"></script>
     <script src="~/Areas/Moderator/Scripts/app/pages/quiz/quiz.config.js"></script>
     <script src="~/Areas/Moderator/Scripts/app/pages/quiz/quiz.service.js"></script>
